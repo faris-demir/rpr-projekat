@@ -1,3 +1,21 @@
-#gpLogin{
-    -fx-background-image: url(/images/background.jpg);
+#lbTitleFirst{
+    -fx-background-color: rgba(255, 255, 255, .64);
+}
+
+#lbTitleSecond{
+    -fx-background-color: rgba(255, 255, 255, .64);
+}
+
+#lbDescFirst{
+    -fx-background-color: rgba(255, 255, 255, .64);
+}
+
+#fldUsername{
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-opacity: 0.85;
+}
+
+#fldPassword{
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-opacity: 0.85;
 }
