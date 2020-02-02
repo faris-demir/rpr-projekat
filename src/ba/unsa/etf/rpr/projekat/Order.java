@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.projekat;
 
 import java.time.LocalDateTime;
 
-public class Order {
+public class Order extends Transactions {
     private String productName;
     private int orderedQuantity;
     private LocalDateTime orderDate;

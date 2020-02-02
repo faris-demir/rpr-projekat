@@ -5,6 +5,30 @@ import java.util.ArrayList;
 public class Container {
     private String tag;
     private ArrayList<Product> products;
+    private int id;
+    private double capacity;
+
+    public Container(int id, String tag, double capacity) {
+        this.tag = tag;
+        this.id = id;
+        this.capacity = capacity;
+    }
+
+    public double getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(double capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTag() {
         return tag;

@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.projekat;
 
 import java.time.LocalDateTime;
 
-public class Sale {
+public class Sale extends Transactions {
     private String productName;
     private int soldQuantity;
     private LocalDateTime saleDate;
