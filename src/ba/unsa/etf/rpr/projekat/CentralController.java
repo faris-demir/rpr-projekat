@@ -34,4 +34,32 @@ public class CentralController {
         primaryStage.show();
         primaryStage.setResizable(false);
     }
+
+    public void registerAction(ActionEvent actionEvent) {
+
+    }
+
+    public void modifyAction(ActionEvent actionEvent) {
+
+    }
+
+    public void removeAction(ActionEvent actionEvent) {
+
+    }
+
+    public void sellAction(ActionEvent actionEvent) {
+
+    }
+
+    public void orderAction(ActionEvent actionEvent) {
+
+    }
+
+    public void salesReportAction(ActionEvent actionEvent) {
+
+    }
+
+    public void orderReportAction(ActionEvent actionEvent) {
+
+    }
 }
