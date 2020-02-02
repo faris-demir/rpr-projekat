@@ -1,56 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="849.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
-  <tabs>
-    <Tab text="Products">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="313.0" layoutY="175.0" text="Ćao Selma!">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Sales">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="342.0" layoutY="195.0" text="Ćao Kanita">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-      <Tab text="Orders">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="346.0" layoutY="184.0" text="Ćao Milice">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-        </content>
-      </Tab>
-      <Tab text="Reports">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab text="About">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-  </tabs>
-</TabPane>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="1116.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="653.0" prefWidth="148.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="153.0" text="Register new product" />
+            <Button mnemonicParsing="false" prefHeight="89.0" prefWidth="159.0" text="Modify product" />
+            <Button mnemonicParsing="false" prefHeight="96.0" prefWidth="152.0" text="Remove product" />
+            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="151.0" text="Sell" />
+            <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="151.0" text="Order" />
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="159.0" text="Sales report" />
+            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="155.0" text="Order report" />
+            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutAction" prefHeight="95.0" prefWidth="153.0" text="Log out" />
+         </children>
+      </VBox>
+      <TableView layoutX="180.0" layoutY="45.0" prefHeight="563.0" prefWidth="915.0">
+        <columns>
+          <TableColumn prefWidth="35.999969482421875" text="ID" />
+          <TableColumn prefWidth="110.99996948242188" text="Name" />
+            <TableColumn prefWidth="69.0" text="Quantity" />
+            <TableColumn prefWidth="70.0" text="Weight" />
+            <TableColumn prefWidth="47.0" text="Unit" />
+            <TableColumn prefWidth="112.5" text="Height of package" />
+            <TableColumn prefWidth="107.0" text="Width of package" />
+            <TableColumn prefWidth="110.0" text="Serial number" />
+            <TableColumn prefWidth="79.0" text="Location tag" />
+            <TableColumn prefWidth="91.0" text="Purchase price" />
+            <TableColumn prefWidth="95.0" text="Selling price" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

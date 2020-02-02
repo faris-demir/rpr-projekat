@@ -2,7 +2,7 @@ package ba.unsa.etf.rpr.projekat;
 
 public class Manager {
     private String username = "admin";
-    private String password = "administrator";
+    private String password = "admin";
 
     public Manager() {
     }
