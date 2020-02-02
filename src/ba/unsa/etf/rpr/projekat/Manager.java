@@ -4,6 +4,9 @@ public class Manager {
     private String username = "admin";
     private String password = "administrator";
 
+    public Manager() {
+    }
+
     public String getUsername() {
         return username;
     }

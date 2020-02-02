@@ -11,15 +11,21 @@
 }
 
 #fldUsername{
-    -fx-background-color: rgba(255, 255, 255, 1);
     -fx-opacity: 0.85;
 }
 
 #fldPassword{
-    -fx-background-color: rgba(255, 255, 255, 1);
     -fx-opacity: 0.85;
 }
 
 #btnLogin{
     -fx-background-radius: 10px;
+}
+
+.notValidField{
+    -fx-control-inner-background: lightpink;
+}
+
+.validField{
+    -fx-control-inner-background: greenyellow;
 }
