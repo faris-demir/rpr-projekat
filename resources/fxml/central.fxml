@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -8,29 +7,29 @@
    <children>
       <VBox prefHeight="653.0" prefWidth="148.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="94.0" prefWidth="153.0" text="Register new product" />
-            <Button mnemonicParsing="false" prefHeight="89.0" prefWidth="159.0" text="Modify product" />
-            <Button mnemonicParsing="false" prefHeight="96.0" prefWidth="152.0" text="Remove product" />
-            <Button mnemonicParsing="false" prefHeight="74.0" prefWidth="151.0" text="Sell" />
-            <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="151.0" text="Order" />
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="159.0" text="Sales report" />
-            <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="155.0" text="Order report" />
+            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#registerAction" prefHeight="94.0" prefWidth="153.0" text="Register new product" />
+            <Button fx:id="btnModify" mnemonicParsing="false" onAction="#modifyAction" prefHeight="89.0" prefWidth="159.0" text="Modify product" />
+            <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#removeAction" prefHeight="96.0" prefWidth="152.0" text="Remove product" />
+            <Button fx:id="btnSell" mnemonicParsing="false" onAction="#sellAction" prefHeight="74.0" prefWidth="151.0" text="Sell" />
+            <Button fx:id="btnOrder" mnemonicParsing="false" onAction="#orderAction" prefHeight="71.0" prefWidth="151.0" text="Order" />
+            <Button fx:id="btnSalesReport" mnemonicParsing="false" onAction="#salesReportAction" prefHeight="65.0" prefWidth="159.0" text="Sales report" />
+            <Button fx:id="btnOrderReport" mnemonicParsing="false" onAction="#orderReportAction" prefHeight="69.0" prefWidth="155.0" text="Order report" />
             <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutAction" prefHeight="95.0" prefWidth="153.0" text="Log out" />
          </children>
       </VBox>
-      <TableView layoutX="180.0" layoutY="45.0" prefHeight="563.0" prefWidth="915.0">
+      <TableView fx:id="tblProduct" layoutX="180.0" layoutY="45.0" prefHeight="563.0" prefWidth="915.0">
         <columns>
-          <TableColumn prefWidth="35.999969482421875" text="ID" />
-          <TableColumn prefWidth="110.99996948242188" text="Name" />
-            <TableColumn prefWidth="69.0" text="Quantity" />
-            <TableColumn prefWidth="70.0" text="Weight" />
-            <TableColumn prefWidth="47.0" text="Unit" />
-            <TableColumn prefWidth="112.5" text="Height of package" />
-            <TableColumn prefWidth="107.0" text="Width of package" />
-            <TableColumn prefWidth="110.0" text="Serial number" />
-            <TableColumn prefWidth="79.0" text="Location tag" />
-            <TableColumn prefWidth="91.0" text="Purchase price" />
-            <TableColumn prefWidth="95.0" text="Selling price" />
+          <TableColumn fx:id="colId" prefWidth="35.999969482421875" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="110.99996948242188" text="Name" />
+            <TableColumn fx:id="colQuantity" prefWidth="69.0" text="Quantity" />
+            <TableColumn fx:id="colWeight" prefWidth="70.0" text="Weight" />
+            <TableColumn fx:id="colUnit" prefWidth="47.0" text="Unit" />
+            <TableColumn fx:id="colHeight" prefWidth="112.5" text="Height of package" />
+            <TableColumn fx:id="colWidth" prefWidth="107.0" text="Width of package" />
+            <TableColumn fx:id="colSerial" prefWidth="110.0" text="Serial number" />
+            <TableColumn fx:id="colLocation" prefWidth="79.0" text="Location tag" />
+            <TableColumn fx:id="colPurchasePrice" prefWidth="91.0" text="Purchase price" />
+            <TableColumn fx:id="colSellingPrice" prefWidth="95.0" text="Selling price" />
         </columns>
       </TableView>
    </children>
