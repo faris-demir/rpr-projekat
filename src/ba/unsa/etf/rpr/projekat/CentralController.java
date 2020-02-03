@@ -1,10 +1,16 @@
 package ba.unsa.etf.rpr.projekat;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,6 +19,60 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class CentralController {
     public Button btnLogout;
+    public TableView<Product> tblProducts;
+    public TableColumn<Product,Integer> colId;
+    public TableColumn<Product,String> colName;
+    public TableColumn<Product,Integer> colQuantity;
+    public TableColumn<Product,Double> colWeight;
+    public TableColumn<Product,String> colUnit;
+    public TableColumn<Product,Double> colHeight;
+    public TableColumn<Product,Double> colWidth;
+    public TableColumn<Product,String> colSerial;
+    public TableColumn<Product,String> colLocation;
+    public TableColumn<Product,Double> colPurchasePrice;
+    public TableColumn<Product,Double> colSellingPrice;
+    public ObservableList<Product> products = FXCollections.observableArrayList();
+    public Product currentProduct = new Product();
+
+    private WarehouseModel model;
+
+    public WarehouseModel getModel() {
+        return model;
+    }
+
+    public CentralController(WarehouseModel model) {
+        this.model = model;
+    }
+
+    @FXML
+    void initialize() {
+        for (Sector s : model.getSectors()) {
+            for (Container c : s.getContainers()) {
+                products.addAll(c.getProducts());
+            }
+        }
+        tblProducts.setItems(products);
+
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        colWeight.setCellValueFactory(new PropertyValueFactory<>("weight"));
+        colUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
+        colHeight.setCellValueFactory(new PropertyValueFactory<>("packageHeight"));
+        colWidth.setCellValueFactory(new PropertyValueFactory<>("packageWidth"));
+        colSerial.setCellValueFactory(new PropertyValueFactory<>("serialNumber"));
+        colLocation.setCellValueFactory(new PropertyValueFactory<>("locationTag"));
+        colPurchasePrice.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
+        colSellingPrice.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
+
+        tblProducts.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (tblProducts.getSelectionModel().getSelectedItem() == null) {
+                currentProduct = null;
+            } else {
+                currentProduct = tblProducts.getSelectionModel().getSelectedItem();
+            }
+        }));
+    }
 
     public void logoutAction(ActionEvent actionEvent) {
         Stage theStage = (Stage) btnLogout.getScene().getWindow();

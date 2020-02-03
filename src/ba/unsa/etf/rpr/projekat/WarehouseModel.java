@@ -13,7 +13,7 @@ public class WarehouseModel {
     private ObservableList<Sector> sectors = FXCollections.observableArrayList();
     private SimpleObjectProperty<Product> currentProduct = new SimpleObjectProperty<>();
     private Connection connection;
-    private PreparedStatement getAllData, getAllSectors, getAllContainers, getAllProducts;
+    private PreparedStatement getAllSectors, getAllContainers, getAllProducts;
 
     public Connection getConnection() {
         return connection;
@@ -22,7 +22,7 @@ public class WarehouseModel {
     private void regenerateDB() {
         Scanner input = null;
         try {
-            input = new Scanner(new FileInputStream("korisnici.db.sql"));
+            input = new Scanner(new FileInputStream("warehouse.db.sql"));
             String sqlQuery = "";
             while (input.hasNext()) {
                 sqlQuery += input.nextLine();
@@ -50,11 +50,11 @@ public class WarehouseModel {
         }
 
         try {
-            getAllData = connection.prepareStatement("SELECT * FROM sector s, container c, product p where c.sector_id = s.id and p.container_id = c.id;");
+            PreparedStatement getAllData = connection.prepareStatement("SELECT * FROM sector s, container c, product p where c.sector_id = s.id and p.container_id = c.id;");
         } catch (SQLException e) {
             regenerateDB();
             try {
-                getAllData = connection.prepareStatement("SELECT * FROM sector s, container c, product p where c.sector_id = s.id and p.container_id = c.id;");
+                PreparedStatement getAllData = connection.prepareStatement("SELECT * FROM sector s, container c, product p where c.sector_id = s.id and p.container_id = c.id;");
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
