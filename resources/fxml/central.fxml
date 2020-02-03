@@ -17,7 +17,7 @@
             <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutAction" prefHeight="95.0" prefWidth="153.0" text="Log out" />
          </children>
       </VBox>
-      <TableView fx:id="tblProduct" layoutX="180.0" layoutY="45.0" prefHeight="563.0" prefWidth="915.0">
+      <TableView fx:id="tblProducts" layoutX="180.0" layoutY="45.0" prefHeight="563.0" prefWidth="915.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="35.999969482421875" text="ID" />
           <TableColumn fx:id="colName" prefWidth="110.99996948242188" text="Name" />

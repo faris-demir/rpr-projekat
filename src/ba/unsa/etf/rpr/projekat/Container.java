@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Container {
     private String tag;
-    private ArrayList<Product> products;
+    private ArrayList<Product> products = new ArrayList<>();
     private int id;
     private double capacity;
 

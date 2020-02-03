@@ -86,6 +86,7 @@ public class WarehouseModel {
                 for (Sector s : sectors) {
                     if (s.getId() == rs2.getInt(4)) {
                         s.getContainers().add(newContainer);
+                        break;
                     }
                 }
             }
@@ -104,12 +105,16 @@ public class WarehouseModel {
                 newProduct.setLocationTag(rs3.getString(9));
                 newProduct.setPurchasePrice(rs3.getDouble(10));
                 newProduct.setSellingPrice(rs3.getDouble(11));
+                boolean productAdded = false;
                 for (Sector s : sectors) {
                     for (Container c : s.getContainers()) {
                         if (c.getId() == rs3.getInt(12)) {
                             c.getProducts().add(newProduct);
+                            productAdded = true;
+                            break;
                         }
                     }
+                    if (productAdded) break;
                 }
             }
         } catch (SQLException e) {
