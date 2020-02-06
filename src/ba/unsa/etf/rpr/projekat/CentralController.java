@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -19,6 +20,7 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class CentralController {
     public Button btnLogout;
+    public TextField fldSearch;
     public TableView<Product> tblProducts;
     public TableColumn<Product,Integer> colId;
     public TableColumn<Product,String> colName;
@@ -97,6 +99,18 @@ public class CentralController {
 
     public void refreshAction(ActionEvent actionEvent) {
         tblProducts.setItems(products);
+        tblProducts.refresh();
+    }
+
+    public void nameSearchAction(ActionEvent actionEvent) {
+        if (fldSearch.getText().equals("")) return;
+        ObservableList<Product> filteredProducts = FXCollections.observableArrayList();
+        for (Product product : products) {
+            if (product.getName().equals(fldSearch.getText())) {
+                filteredProducts.add(product);
+            }
+        }
+        tblProducts.setItems(filteredProducts);
         tblProducts.refresh();
     }
 
