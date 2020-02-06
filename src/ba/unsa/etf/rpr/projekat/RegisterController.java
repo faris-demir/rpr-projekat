@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.projekat;
 
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 
 public class RegisterController {
@@ -10,8 +11,8 @@ public class RegisterController {
     public TextField fldHeight;
     public TextField fldWidth;
     public TextField fldSerial;
-    public TextField spnSector;
-    public TextField spnContainer;
+    public Spinner<String> spnSector;
+    public Spinner<Integer> spnContainer;
     public TextField fldPurchasePrice;
     public TextField fldSellingPrice;
 }
