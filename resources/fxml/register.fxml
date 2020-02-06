@@ -80,7 +80,6 @@
       <TextField fx:id="fldName" GridPane.columnIndex="1" />
       <TextField fx:id="fldQuantity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="fldWeight" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField fx:id="fldUnit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <TextField fx:id="fldHeight" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <TextField fx:id="fldWidth" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <TextField fx:id="fldSerial" GridPane.columnIndex="3">
@@ -107,5 +106,6 @@
             <Insets bottom="20.0" right="20.0" />
          </GridPane.margin>
       </ButtonBar>
+      <ChoiceBox fx:id="cbUnit" prefHeight="27.0" prefWidth="218.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
    </children>
 </GridPane>
