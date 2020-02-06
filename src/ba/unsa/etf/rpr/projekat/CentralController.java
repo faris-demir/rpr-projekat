@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -107,6 +104,25 @@ public class CentralController {
         ObservableList<Product> filteredProducts = FXCollections.observableArrayList();
         for (Product product : products) {
             if (product.getName().equals(fldSearch.getText())) {
+                filteredProducts.add(product);
+            }
+        }
+        tblProducts.setItems(filteredProducts);
+        tblProducts.refresh();
+    }
+
+    public void sectorSearchAction(ActionEvent actionEvent) {
+        if (fldSearch.getText().equals("")) return;
+        if (fldSearch.getText().length() > 1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Failed search attempt");
+            alert.setContentText("Sector names only contain one letter! \nThey are in the range from A to H inclusive.");
+            alert.showAndWait();
+            return;
+        }
+        ObservableList<Product> filteredProducts = FXCollections.observableArrayList();
+        for (Product product : products) {
+            if (product.getLocationTag().charAt(0) == fldSearch.getText().charAt(0)) {
                 filteredProducts.add(product);
             }
         }
