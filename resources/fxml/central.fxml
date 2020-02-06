@@ -37,7 +37,7 @@
         <buttons>
             <Button fx:id="btnNameSearch" layoutX="242.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="124.0" text="Search name" />
             <Button fx:id="btnSectorSearch" layoutX="242.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" text="Search sector" />
-          <Button fx:id="btnRefresh" contentDisplay="TOP" mnemonicParsing="false" text="Refresh" />
+          <Button fx:id="btnRefresh" contentDisplay="TOP" mnemonicParsing="false" onAction="#refreshAction" text="Refresh" />
         </buttons>
       </ButtonBar>
    </children>

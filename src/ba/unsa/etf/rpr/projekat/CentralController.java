@@ -95,6 +95,11 @@ public class CentralController {
         primaryStage.setResizable(false);
     }
 
+    public void refreshAction(ActionEvent actionEvent) {
+        tblProducts.setItems(products);
+        tblProducts.refresh();
+    }
+
     public void registerAction(ActionEvent actionEvent) {
 
     }
