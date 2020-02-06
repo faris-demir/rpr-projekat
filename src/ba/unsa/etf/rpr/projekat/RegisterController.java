@@ -37,6 +37,8 @@ public class RegisterController {
         unitObsList.addAll("tonne","kilogram","gram","liter","milliliter","gallon","barrel","ounce","pound");
         cbUnit.setItems(unitObsList);
         cbUnit.setValue("tonne");
+
+
     }
 
     public void cancelAction(ActionEvent actionEvent) {
