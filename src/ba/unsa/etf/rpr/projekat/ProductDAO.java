@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ProductDAO {
     private static ProductDAO productInstance = null;
     private Connection connection;
-    private PreparedStatement insertSector, insertContainer, insertProduct, getMaxSectorId, getMaxContainerId, getMaxProductId;
+    private PreparedStatement insertProduct, getMaxProductId, updateProduct;
 
     public Connection getConnection() {
         return connection;
@@ -72,12 +72,12 @@ public class ProductDAO {
         }
 
         try {
-            insertSector = connection.prepareStatement("insert into sector values (?,?,?);");
-            insertContainer = connection.prepareStatement("insert into container values (?,?,?,?);");
             insertProduct = connection.prepareStatement("insert into product values (?,?,?,?,?,?,?,?,?,?,?,?);");
-            getMaxSectorId = connection.prepareStatement("select MAX(id)+1 from sector;");
-            getMaxContainerId = connection.prepareStatement("select MAX(id)+1 from container;");
             getMaxProductId = connection.prepareStatement("select MAX(id)+1 from product;");
+            updateProduct = connection.prepareStatement("update product p set p.name=?, p.quantity=?, p.weight=?, p.unit=?, p.package_height=?, " +
+                                                             "p.package_width=?, p.serial_number=?, p.location_tag=?, p.purchase_price=?, " +
+                                                             "p.selling_price=?, p.container_id=? where p.id=?");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -91,6 +91,27 @@ public class ProductDAO {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public void modifyProduct(Product product) {
+        try {
+            updateProduct.clearParameters();
+            updateProduct.setString(1, product.getName());
+            updateProduct.setInt(2, product.getQuantity());
+            updateProduct.setDouble(3, product.getWeight());
+            updateProduct.setString(4, product.getUnit());
+            updateProduct.setDouble(5, product.getPackageHeight());
+            updateProduct.setDouble(6, product.getPackageWidth());
+            updateProduct.setString(7, product.getSerialNumber());
+            updateProduct.setString(8, product.getLocationTag());
+            updateProduct.setDouble(9, product.getPurchasePrice());
+            updateProduct.setDouble(10, product.getSellingPrice());
+            updateProduct.setInt(11, product.getLocationTag().charAt(1) - '0');
+            updateProduct.setInt(12, product.getId());
+            updateProduct.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void registerNewProduct(Product product) {

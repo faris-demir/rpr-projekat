@@ -133,7 +133,7 @@ public class CentralController {
     }
 
     public void registerAction(ActionEvent actionEvent) {
-        RegisterController ctrl = new RegisterController();
+        RegisterController ctrl = new RegisterController(null);
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
         loader.setController(ctrl);
@@ -157,7 +157,19 @@ public class CentralController {
     }
 
     public void modifyAction(ActionEvent actionEvent) {
-
+        RegisterController ctrl = new RegisterController(tblProducts.getSelectionModel().getSelectedItem());
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
+        loader.setController(ctrl);
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        primaryStage.setTitle("Register new product");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.show();
     }
 
     public void removeAction(ActionEvent actionEvent) {

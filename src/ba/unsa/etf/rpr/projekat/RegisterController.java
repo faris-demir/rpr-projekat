@@ -22,9 +22,14 @@ public class RegisterController {
     public TextField fldPurchasePrice;
     public TextField fldSellingPrice;
     private Product productToRegister = null;
+    private Product productToModify = null;
 
     public Product getProductToRegister() {
         return productToRegister;
+    }
+
+    public RegisterController(Product productToModify) {
+        this.productToModify = productToModify;
     }
 
     @FXML
@@ -129,7 +134,10 @@ public class RegisterController {
                 fldPurchasePrice.getStyleClass().contains("validField") && fldSellingPrice.getStyleClass().contains("validField");
     }
 
-    public void registerAction(ActionEvent actionEvent) {
+    public void confirmAction(ActionEvent actionEvent) {
+        if (productToModify != null) {
+
+        }
         if (readyToRegister()) {
             productToRegister = new Product();
             productToRegister.setName(fldName.getText());

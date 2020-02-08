@@ -103,7 +103,7 @@
       </TextField>
       <ButtonBar prefHeight="72.0" prefWidth="278.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6">
         <buttons>
-          <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#registerAction" prefHeight="40.0" prefWidth="103.0" text="Register" />
+          <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#confirmAction" prefHeight="40.0" prefWidth="103.0" text="Confirm" />
             <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="103.0" text="Cancel" />
         </buttons>
          <GridPane.margin>
