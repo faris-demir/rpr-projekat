@@ -54,6 +54,13 @@ public class CentralController {
         return productsDB;
     }
 
+    public void refreshListContent() {
+        model.loadData();
+        products.setAll(getProductsDB());
+        tblProducts.setItems(products);
+        tblProducts.refresh();
+    }
+
     @FXML
     void initialize() {
         products = getProductsDB();
@@ -162,7 +169,7 @@ public class CentralController {
     }
 
     public void modifyAction(ActionEvent actionEvent) {
-        RegisterController ctrl = new RegisterController(tblProducts.getSelectionModel().getSelectedItem());
+        RegisterController ctrl = new RegisterController(currentProduct);
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
         loader.setController(ctrl);
@@ -178,17 +185,19 @@ public class CentralController {
             if (ctrl.getProductToModify() != null) {
                 products.removeAll(getProductsDB());
                 getProductInstance().modifyProduct(ctrl.getProductToModify());
-                model.loadData();
-                products.setAll(getProductsDB());
-                tblProducts.setItems(products);
-                tblProducts.refresh();
+                refreshListContent();
             }
         });
         primaryStage.show();
     }
 
     public void removeAction(ActionEvent actionEvent) {
-
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Deleting selected product");
+        alert.setContentText("This action will delete the product you have selected. Are you sure you would like to proceed?");
+        alert.showAndWait();
+        getProductInstance().deleteProduct(currentProduct);
+        refreshListContent();
     }
 
     public void sellAction(ActionEvent actionEvent) {
