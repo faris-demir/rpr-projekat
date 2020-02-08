@@ -4,7 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import static ba.unsa.etf.rpr.projekat.ProductDAO.getProductInstance;
@@ -28,6 +31,10 @@ public class RegisterController {
         return productToRegister;
     }
 
+    public Product getProductToModify() {
+        return productToModify;
+    }
+
     public RegisterController(Product productToModify) {
         this.productToModify = productToModify;
     }
@@ -46,6 +53,20 @@ public class RegisterController {
         unitObsList.addAll("tonne","kilogram","gram","liter","milliliter","gallon","barrel","ounce","pound");
         cbUnit.setItems(unitObsList);
         cbUnit.setValue("tonne");
+
+        if (productToModify != null) {
+            fldName.setText(productToModify.getName());
+            fldQuantity.setText(String.valueOf(productToModify.getQuantity()));
+            fldWeight.setText(String.valueOf(productToModify.getWeight()));
+            cbUnit.setValue(productToModify.getUnit());
+            fldHeight.setText(String.valueOf(productToModify.getPackageHeight()));
+            fldWidth.setText(String.valueOf(productToModify.getPackageWidth()));
+            fldSerial.setText(productToModify.getSerialNumber());
+            spnSector.getValueFactory().setValue(String.valueOf(productToModify.getLocationTag().charAt(0)));
+            spnContainer.getValueFactory().setValue(productToModify.getLocationTag().charAt(1) - '0');
+            fldPurchasePrice.setText(String.valueOf(productToModify.getPurchasePrice()));
+            fldSellingPrice.setText(String.valueOf(productToModify.getSellingPrice()));
+        }
 
         fldName.textProperty().addListener(((obs, oldVal, newVal) -> {
             if (!newVal.isEmpty()) {
@@ -135,10 +156,7 @@ public class RegisterController {
     }
 
     public void confirmAction(ActionEvent actionEvent) {
-        if (productToModify != null) {
-
-        }
-        if (readyToRegister()) {
+        if (readyToRegister() || productToModify != null) {
             productToRegister = new Product();
             productToRegister.setName(fldName.getText());
             productToRegister.setQuantity(Integer.parseInt(fldQuantity.getText()));
@@ -150,19 +168,24 @@ public class RegisterController {
             productToRegister.setLocationTag(spnSector.getValue() + spnContainer.getValue());
             productToRegister.setPurchasePrice(Double.parseDouble(fldPurchasePrice.getText()));
             productToRegister.setSellingPrice(Double.parseDouble(fldSellingPrice.getText()));
-            productToRegister.setId(getProductInstance().getMaxProductId());
+            if (productToModify == null) productToRegister.setId(getProductInstance().getMaxProductId());
+            if (productToModify != null) {
+                productToRegister.setId(productToModify.getId());
+                productToModify = productToRegister;
+            }
             Stage currentStage = (Stage) fldName.getScene().getWindow();
             currentStage.close();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Error while registering new product");
-            alert.setContentText("All fields must be filled with the right data in order to successfully register a new product!");
-            alert.showAndWait();
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setHeaderText("Error while registering new product");
+//            alert.setContentText("All fields must be filled with the right data in order to successfully register a new product!");
+//            alert.showAndWait();
         }
     }
 
     public void cancelAction(ActionEvent actionEvent) {
-        Stage currentStage = (Stage) fldName.getScene().getWindow();
+        productToModify = null;
+        Stage currentStage = (Stage) cbUnit.getScene().getWindow();
         currentStage.close();
     }
 }

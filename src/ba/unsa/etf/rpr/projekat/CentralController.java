@@ -44,14 +44,19 @@ public class CentralController {
         this.model = model;
     }
 
+    public ObservableList<Product> getProductsDB() {
+        ObservableList<Product> productsDB = FXCollections.observableArrayList();
+        for (Sector s : model.getSectors()) {
+            for (Container c : s.getContainers()) {
+                productsDB.addAll(c.getProducts());
+            }
+        }
+        return productsDB;
+    }
 
     @FXML
     void initialize() {
-        for (Sector s : model.getSectors()) {
-            for (Container c : s.getContainers()) {
-                products.addAll(c.getProducts());
-            }
-        }
+        products = getProductsDB();
         tblProducts.setItems(products);
 
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -169,6 +174,16 @@ public class CentralController {
         }
         primaryStage.setTitle("Register new product");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.setOnHiding(windowEvent -> {
+            if (ctrl.getProductToModify() != null) {
+                products.removeAll(getProductsDB());
+                getProductInstance().modifyProduct(ctrl.getProductToModify());
+                model.loadData();
+                products.setAll(getProductsDB());
+                tblProducts.setItems(products);
+                tblProducts.refresh();
+            }
+        });
         primaryStage.show();
     }
 

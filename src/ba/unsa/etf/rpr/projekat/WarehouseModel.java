@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WarehouseModel {
@@ -73,6 +74,12 @@ public class WarehouseModel {
     }
 
     public void loadData() {
+        for (Sector s : sectors) {
+            for (Container c : s.getContainers()) {
+                c.setProducts(new ArrayList<>());
+            }
+            s.setContainers(new ArrayList<>());
+        }
         try {
             ResultSet rs1 = getAllSectors.executeQuery();
             while (rs1.next()) {

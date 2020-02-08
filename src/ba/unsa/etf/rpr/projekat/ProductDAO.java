@@ -74,9 +74,9 @@ public class ProductDAO {
         try {
             insertProduct = connection.prepareStatement("insert into product values (?,?,?,?,?,?,?,?,?,?,?,?);");
             getMaxProductId = connection.prepareStatement("select MAX(id)+1 from product;");
-            updateProduct = connection.prepareStatement("update product p set p.name=?, p.quantity=?, p.weight=?, p.unit=?, p.package_height=?, " +
-                                                             "p.package_width=?, p.serial_number=?, p.location_tag=?, p.purchase_price=?, " +
-                                                             "p.selling_price=?, p.container_id=? where p.id=?");
+            updateProduct = connection.prepareStatement("update product set name=?, quantity=?, weight=?, unit=?, package_height=?, " +
+                                                             "package_width=?, serial_number=?, location_tag=?, purchase_price=?, " +
+                                                             "selling_price=?, container_id=? where id=?");
 
         } catch (SQLException e) {
             e.printStackTrace();
