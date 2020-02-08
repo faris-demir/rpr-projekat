@@ -13,7 +13,7 @@ public class WarehouseModel {
     private ObservableList<Sector> sectors = FXCollections.observableArrayList();
     private SimpleObjectProperty<Product> currentProduct = new SimpleObjectProperty<>();
     private Connection connection;
-    private PreparedStatement getAllSectors, getAllContainers, getAllProducts, findByName;
+    private PreparedStatement getAllSectors, getAllContainers, getAllProducts;
 
     public Connection getConnection() {
         return connection;
