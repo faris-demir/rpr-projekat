@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class ProductDAO {
     private Connection connection;
+    private PreparedStatement insertSector, insertContainer, insertProduct;
 
     public Connection getConnection() {
         return connection;
@@ -53,7 +54,16 @@ public class ProductDAO {
             }
         }
 
-
+        try {
+            insertSector = connection.prepareStatement("insert into sector values (?,?,?);");
+            insertContainer = connection.prepareStatement("insert into container values (?,?,?,?);");
+            insertProduct = connection.prepareStatement("insert into product values (?,?,?,?,?,?,?,?,?,?,?,?);");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
+
+
+
 }
