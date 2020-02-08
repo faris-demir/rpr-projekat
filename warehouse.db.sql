@@ -2,7 +2,7 @@ BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS "container" (
 	"id"	INTEGER PRIMARY KEY AUTOINCREMENT,
 	"name"	TEXT,
-	"capacity"	INTEGER,
+	"capacity"	NUMBER,
 	"sector_id"	INTEGER,
 	FOREIGN KEY("sector_id") REFERENCES "sector"("id")
 );
@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS "product" (
 	"package_width"	NUMBER,
 	"serial_number"	TEXT,
 	"location_tag"	TEXT,
-	"purchase_price"	INTEGER,
-	"selling_price"	INTEGER,
+	"purchase_price"	NUMBER,
+	"selling_price"	NUMBER,
 	"container_id"	INTEGER,
 	FOREIGN KEY("container_id") REFERENCES "container"("id")
 );
