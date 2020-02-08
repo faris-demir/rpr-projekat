@@ -34,6 +34,10 @@ public class CentralController {
     public ObservableList<Product> products = FXCollections.observableArrayList();
     public Product currentProduct = new Product();
 
+    public Product getCurrentProduct() {
+        return currentProduct;
+    }
+
     private WarehouseModel model;
 
     public WarehouseModel getModel() {
@@ -201,7 +205,19 @@ public class CentralController {
     }
 
     public void sellAction(ActionEvent actionEvent) {
-
+        SellController ctrl = new SellController(currentProduct);
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sell.fxml"));
+        loader.setController(ctrl);
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        primaryStage.setTitle("Sell product");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.show();
     }
 
     public void orderAction(ActionEvent actionEvent) {
