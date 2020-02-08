@@ -69,24 +69,8 @@ public class ProductDAO {
 
     public void registerNewProduct(Product product) {
         try {
-//            insertSector.clearParameters();
-//            insertContainer.clearParameters();
             insertProduct.clearParameters();
-
             int productId = getMaxProductId.executeQuery().getInt(1);
-//            int containerId = getMaxContainerId.executeQuery().getInt(1);
-//            int sectorId = getMaxSectorId.executeQuery().getInt(1);
-
-//            insertSector.setInt(1, sectorId);
-//            insertSector.setString(2, sector.getTag());
-//            insertSector.setInt(3, sector.getCapacity());
-//            insertSector.executeUpdate();
-
-//            insertContainer.setInt(1, containerId);
-//            insertContainer.setString(2, container.getTag());
-//            insertContainer.setDouble(3, container.getCapacity());
-//            insertContainer.setInt(4, sectorId);
-//            insertContainer.executeUpdate();
 
             insertProduct.setInt(1, productId);
             insertProduct.setString(2, product.getName());

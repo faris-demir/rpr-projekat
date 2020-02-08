@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class RegisterController {
@@ -22,6 +19,11 @@ public class RegisterController {
     public Spinner<Integer> spnContainer;
     public TextField fldPurchasePrice;
     public TextField fldSellingPrice;
+    private Product productToRegister = null;
+
+    public Product getProductToRegister() {
+        return productToRegister;
+    }
 
     @FXML
     public void initialize() {
@@ -117,6 +119,33 @@ public class RegisterController {
                 fldSellingPrice.getStyleClass().add("notValidField");
             }
         }));
+    }
+
+    public boolean readyToRegister() {
+        return fldName.getStyleClass().contains("validField") && fldQuantity.getStyleClass().contains("validField") && fldWeight.getStyleClass().contains("validField") &&
+                fldHeight.getStyleClass().contains("validField") && fldWidth.getStyleClass().contains("validField") && fldSerial.getStyleClass().contains("validField") &&
+                fldPurchasePrice.getStyleClass().contains("validField") && fldSellingPrice.getStyleClass().contains("validField");
+    }
+
+    public void registerAction(ActionEvent actionEvent) {
+        if (readyToRegister()) {
+            productToRegister = new Product();
+            productToRegister.setName(fldName.getText());
+            productToRegister.setQuantity(Integer.parseInt(fldQuantity.getText()));
+            productToRegister.setWeight(Double.parseDouble(fldWeight.getText()));
+            productToRegister.setUnit(cbUnit.getSelectionModel().getSelectedItem());
+            productToRegister.setPackageHeight(Double.parseDouble(fldHeight.getText()));
+            productToRegister.setPackageWidth(Double.parseDouble(fldWidth.getText()));
+            productToRegister.setSerialNumber(fldSerial.getText());
+            productToRegister.setLocationTag(spnSector.getValue() + spnContainer.getValue());
+            productToRegister.setPurchasePrice(Double.parseDouble(fldPurchasePrice.getText()));
+            productToRegister.setSellingPrice(Double.parseDouble(fldSellingPrice.getText()));
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText("Error while registering new product");
+        alert.setContentText("All fields must be filled with the right data in order to successfully register a new product!");
+        alert.showAndWait();
     }
 
     public void cancelAction(ActionEvent actionEvent) {
