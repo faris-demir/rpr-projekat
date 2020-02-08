@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ProductDAO {
     private static ProductDAO productInstance = null;
     private Connection connection;
-    private PreparedStatement insertProduct, getMaxProductId, updateProduct;
+    private PreparedStatement insertProduct, getMaxProductId, updateProduct, deleteProduct;
 
     public Connection getConnection() {
         return connection;
@@ -77,6 +77,7 @@ public class ProductDAO {
             updateProduct = connection.prepareStatement("update product set name=?, quantity=?, weight=?, unit=?, package_height=?, " +
                                                              "package_width=?, serial_number=?, location_tag=?, purchase_price=?, " +
                                                              "selling_price=?, container_id=? where id=?");
+            deleteProduct = connection.prepareStatement("delete from product where id=?;");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -91,6 +92,15 @@ public class ProductDAO {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public void deleteProduct(Product product) {
+        try {
+            deleteProduct.setInt(1, product.getId());
+            deleteProduct.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void modifyProduct(Product product) {
