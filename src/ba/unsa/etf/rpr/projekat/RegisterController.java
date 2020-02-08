@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import static ba.unsa.etf.rpr.projekat.ProductDAO.getProductInstance;
+
 public class RegisterController {
     public TextField fldName;
     public TextField fldQuantity;
@@ -140,12 +142,15 @@ public class RegisterController {
             productToRegister.setLocationTag(spnSector.getValue() + spnContainer.getValue());
             productToRegister.setPurchasePrice(Double.parseDouble(fldPurchasePrice.getText()));
             productToRegister.setSellingPrice(Double.parseDouble(fldSellingPrice.getText()));
-            return;
+            productToRegister.setId(getProductInstance().getMaxProductId());
+            Stage currentStage = (Stage) fldName.getScene().getWindow();
+            currentStage.close();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error while registering new product");
+            alert.setContentText("All fields must be filled with the right data in order to successfully register a new product!");
+            alert.showAndWait();
         }
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText("Error while registering new product");
-        alert.setContentText("All fields must be filled with the right data in order to successfully register a new product!");
-        alert.showAndWait();
     }
 
     public void cancelAction(ActionEvent actionEvent) {

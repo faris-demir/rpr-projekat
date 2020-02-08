@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static ba.unsa.etf.rpr.projekat.ProductDAO.getProductInstance;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class CentralController {
@@ -42,6 +43,7 @@ public class CentralController {
     public CentralController(WarehouseModel model) {
         this.model = model;
     }
+
 
     @FXML
     void initialize() {
@@ -143,6 +145,14 @@ public class CentralController {
         }
         primaryStage.setTitle("Register new product");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.setOnHiding(windowEvent -> {
+            if (ctrl.getProductToRegister() != null) {
+                getProductInstance().registerNewProduct(ctrl.getProductToRegister());
+                products.add(ctrl.getProductToRegister());
+                tblProducts.setItems(products);
+                tblProducts.refresh();
+            }
+        });
         primaryStage.show();
     }
 

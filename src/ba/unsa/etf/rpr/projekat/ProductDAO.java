@@ -6,11 +6,28 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class ProductDAO {
+    private static ProductDAO productInstance = null;
     private Connection connection;
     private PreparedStatement insertSector, insertContainer, insertProduct, getMaxSectorId, getMaxContainerId, getMaxProductId;
 
     public Connection getConnection() {
         return connection;
+    }
+
+    public static ProductDAO getProductInstance() {
+        if (productInstance == null) productInstance = new ProductDAO();
+        return productInstance;
+    }
+
+    public static void removeProductInstance() {
+        if (productInstance != null) {
+            try {
+                productInstance.connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        productInstance = null;
     }
 
     private void regenerateDB() {
@@ -65,6 +82,15 @@ public class ProductDAO {
             e.printStackTrace();
         }
 
+    }
+
+    public int getMaxProductId() {
+        try {
+            return getMaxProductId.executeQuery().getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public void registerNewProduct(Product product) {
