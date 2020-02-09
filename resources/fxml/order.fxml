@@ -22,7 +22,7 @@
     <children>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <buttons>
-                <Button fx:id="btnConfirm" mnemonicParsing="false" prefHeight="37.0" prefWidth="160.0" text="Confirm" />
+                <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmAction" prefHeight="37.0" prefWidth="160.0" text="Confirm" />
                 <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="39.0" text="Cancle" />
             </buttons>
             <GridPane.margin>

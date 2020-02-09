@@ -20,7 +20,7 @@ public class OrderController {
     public void initialize() {
         fldName.setText(productToOrder.getName());
         fldAvailQuantity.setText(String.valueOf(productToOrder.getQuantity()));
-        fldPrice.setText(String.valueOf(productToOrder.getSellingPrice()));
+        fldPrice.setText(String.valueOf(productToOrder.getPurchasePrice()));
         fldName.setDisable(true);
         fldAvailQuantity.setDisable(true);
         fldPrice.setDisable(true);
@@ -30,7 +30,14 @@ public class OrderController {
         return productToOrder;
     }
 
+    public void confirmAction(ActionEvent actionEvent) {
+        productToOrder.setQuantity(productToOrder.getQuantity() + Integer.parseInt(fldOrderQuantity.getText()));
+        Stage currentStage = (Stage) fldName.getScene().getWindow();
+        currentStage.close();
+    }
+
     public void cancelAction(ActionEvent actionEvent) {
+        productToOrder = null;
         Stage currentStage = (Stage) fldName.getScene().getWindow();
         currentStage.close();
     }
