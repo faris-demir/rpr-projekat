@@ -24,6 +24,16 @@ public class OrderController {
         fldName.setDisable(true);
         fldAvailQuantity.setDisable(true);
         fldPrice.setDisable(true);
+
+        fldOrderQuantity.textProperty().addListener(((observableValue, oldVal, newVal) -> {
+            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+                fldOrderQuantity.getStyleClass().removeAll("notValidField");
+                fldOrderQuantity.getStyleClass().add("validField");
+            } else {
+                fldOrderQuantity.getStyleClass().removeAll("validField");
+                fldOrderQuantity.getStyleClass().add("notValidField");
+            }
+        }));
     }
 
     public Product getProductToOrder() {
