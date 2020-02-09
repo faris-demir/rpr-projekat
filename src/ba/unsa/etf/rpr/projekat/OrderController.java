@@ -12,9 +12,18 @@ public class OrderController {
     public TextField fldOrderQuantity;
     private Product productToOrder = null;
 
+    public OrderController(Product productToOrder) {
+        this.productToOrder = productToOrder;
+    }
+
     @FXML
     public void initialize() {
-
+        fldName.setText(productToOrder.getName());
+        fldAvailQuantity.setText(String.valueOf(productToOrder.getQuantity()));
+        fldPrice.setText(String.valueOf(productToOrder.getSellingPrice()));
+        fldName.setDisable(true);
+        fldAvailQuantity.setDisable(true);
+        fldPrice.setDisable(true);
     }
 
     public Product getProductToOrder() {

@@ -231,7 +231,27 @@ public class CentralController {
     }
 
     public void orderAction(ActionEvent actionEvent) {
-
+        if (currentProduct == null) return;
+        OrderController ctrl = new OrderController(currentProduct);
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/order.fxml"));
+        loader.setController(ctrl);
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        primaryStage.setTitle("Order product");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.setOnHiding(windowEvent -> {
+            if (ctrl.getProductToOrder() != null) {
+                products.removeAll(getProductsDB());
+                getProductInstance().modifyProduct(ctrl.getProductToOrder());
+                refreshListContent();
+            }
+        });
+        primaryStage.show();
     }
 
     public void salesReportAction(ActionEvent actionEvent) {
