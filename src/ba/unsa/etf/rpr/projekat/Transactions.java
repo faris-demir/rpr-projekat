@@ -3,8 +3,8 @@ package ba.unsa.etf.rpr.projekat;
 import java.util.ArrayList;
 
 public class Transactions {
-    private ArrayList<Sale> sales;
-    private ArrayList<Order> orders;
+    private ArrayList<Sale> sales = new ArrayList<>();
+    private ArrayList<Order> orders = new ArrayList<>();
 
     public ArrayList<Sale> getSales() {
         return sales;

@@ -5,15 +5,22 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.time.LocalDateTime;
+
 public class OrderController {
     public TextField fldName;
     public TextField fldAvailQuantity;
     public TextField fldPrice;
     public TextField fldOrderQuantity;
     private Product productToOrder = null;
+    private Order newOrder = null;
 
     public OrderController(Product productToOrder) {
         this.productToOrder = productToOrder;
+    }
+
+    public Order getNewOrder() {
+        return newOrder;
     }
 
     @FXML
@@ -48,6 +55,11 @@ public class OrderController {
 
     public void confirmAction(ActionEvent actionEvent) {
         if (fldOrderQuantity.getStyleClass().contains("validField")) {
+            newOrder = new Order();
+            newOrder.setProductName(productToOrder.getName());
+            newOrder.setOrderedQuantity(Integer.parseInt(fldOrderQuantity.getText()));
+            newOrder.setPrice(productToOrder.getPurchasePrice());
+            newOrder.setOrderDate(LocalDateTime.now());
             productToOrder.setQuantity(productToOrder.getQuantity() + Integer.parseInt(fldOrderQuantity.getText()));
             Stage currentStage = (Stage) fldName.getScene().getWindow();
             currentStage.close();

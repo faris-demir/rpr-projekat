@@ -6,8 +6,8 @@ public class Order extends Transactions {
     private String productName;
     private int orderedQuantity;
     private LocalDateTime orderDate;
-    private int price;
-    private int totalPrice;
+    private double price;
+    private double totalPrice;
 
     public String getProductName() {
         return productName;
@@ -33,19 +33,19 @@ public class Order extends Transactions {
         this.orderDate = orderDate;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }
