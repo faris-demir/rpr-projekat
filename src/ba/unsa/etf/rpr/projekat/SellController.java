@@ -12,7 +12,7 @@ public class SellController {
     public TextField fldAvailQuantity;
     public TextField fldPrice;
     public Spinner<Integer> spnSellQuantity;
-    private Product productForSale;
+    private Product productForSale = null;
 
     public SellController(Product productForSale) {
         this.productForSale = productForSale;
@@ -30,7 +30,18 @@ public class SellController {
         fldPrice.setDisable(true);
     }
 
+    public Product getProductForSale() {
+        return productForSale;
+    }
+
+    public void confirmAction(ActionEvent actionEvent) {
+        productForSale.setQuantity(productForSale.getQuantity() - spnSellQuantity.getValue());
+        Stage currentStage = (Stage) fldName.getScene().getWindow();
+        currentStage.close();
+    }
+
     public void cancelAction(ActionEvent actionEvent) {
+        productForSale = null;
         Stage currentStage = (Stage) fldName.getScene().getWindow();
         currentStage.close();
     }

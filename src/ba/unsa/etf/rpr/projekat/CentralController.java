@@ -32,7 +32,7 @@ public class CentralController {
     public TableColumn<Product,Double> colPurchasePrice;
     public TableColumn<Product,Double> colSellingPrice;
     public ObservableList<Product> products = FXCollections.observableArrayList();
-    public Product currentProduct = new Product();
+    public Product currentProduct = null;
 
     public Product getCurrentProduct() {
         return currentProduct;
@@ -173,6 +173,7 @@ public class CentralController {
     }
 
     public void modifyAction(ActionEvent actionEvent) {
+        if (currentProduct == null) return;
         RegisterController ctrl = new RegisterController(currentProduct);
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
@@ -196,6 +197,7 @@ public class CentralController {
     }
 
     public void removeAction(ActionEvent actionEvent) {
+        if (currentProduct == null) return;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText("Deleting selected product");
         alert.setContentText("This action will delete the product you have selected. Are you sure you would like to proceed?");
@@ -205,6 +207,7 @@ public class CentralController {
     }
 
     public void sellAction(ActionEvent actionEvent) {
+        if (currentProduct == null) return;
         SellController ctrl = new SellController(currentProduct);
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sell.fxml"));
@@ -217,6 +220,13 @@ public class CentralController {
         }
         primaryStage.setTitle("Sell product");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        primaryStage.setOnHiding(windowEvent -> {
+            if (ctrl.getProductForSale() != null) {
+                products.removeAll(getProductsDB());
+                getProductInstance().modifyProduct(ctrl.getProductForSale());
+                refreshListContent();
+            }
+        });
         primaryStage.show();
     }
 
