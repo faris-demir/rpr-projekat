@@ -29,10 +29,22 @@
             <Insets right="20.0" />
          </GridPane.margin>
       </ButtonBar>
-      <Label text="Name:" GridPane.halignment="CENTER" />
-      <Label text="Available quantity:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Label text="Selling price:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <Label text="Choose quantity to sell:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <Label text="Name:" GridPane.halignment="RIGHT">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></Label>
+      <Label text="Available quantity:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></Label>
+      <Label text="Selling price:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></Label>
+      <Label text="Choose quantity to sell:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets right="20.0" />
+         </GridPane.margin></Label>
       <Spinner fx:id="spnSellQuantity" prefHeight="35.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="20.0" />
