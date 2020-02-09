@@ -3,7 +3,11 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="460.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<?import java.net.URL?>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/sell.css" />
+    </stylesheets>
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="180.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="280.0" />
@@ -19,7 +23,7 @@
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <buttons>
           <Button fx:id="btnConfirm" mnemonicParsing="false" prefHeight="37.0" prefWidth="160.0" text="Confirm" />
-            <Button fx:id="btnCancel" mnemonicParsing="false" prefHeight="39.0" text="Cancle" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="39.0" text="Cancle" />
         </buttons>
          <GridPane.margin>
             <Insets right="20.0" />
@@ -34,20 +38,20 @@
             <Insets left="20.0" />
          </GridPane.margin>
       </Spinner>
-      <Label fx:id="lbName" GridPane.columnIndex="1">
+      <TextField fx:id="fldName" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="161.0" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
-      </Label>
-      <Label fx:id="lbAvailQuantity" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      </TextField>
+      <TextField fx:id="fldAvailQuantity" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
-      </Label>
-      <Label fx:id="lbPrice" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      </TextField>
+      <TextField fx:id="fldPrice" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="161.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="20.0" />
          </GridPane.margin>
-      </Label>
+      </TextField>
    </children>
 </GridPane>
