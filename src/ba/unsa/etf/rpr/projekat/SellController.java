@@ -7,12 +7,15 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.time.LocalDateTime;
+
 public class SellController {
     public TextField fldName;
     public TextField fldAvailQuantity;
     public TextField fldPrice;
     public Spinner<Integer> spnSellQuantity;
     private Product productForSale = null;
+    private Sale newSale = null;
 
     public SellController(Product productForSale) {
         this.productForSale = productForSale;
@@ -34,7 +37,17 @@ public class SellController {
         return productForSale;
     }
 
+    public Sale getNewSale() {
+        return newSale;
+    }
+
     public void confirmAction(ActionEvent actionEvent) {
+        newSale = new Sale();
+        newSale.setProductName(productForSale.getName());
+        newSale.setSoldQuantity(spnSellQuantity.getValue());
+        newSale.setPrice(productForSale.getSellingPrice());
+        newSale.setTotalPrice(productForSale.getSellingPrice() * spnSellQuantity.getValue());
+        newSale.setSaleDate(LocalDateTime.now());
         productForSale.setQuantity(productForSale.getQuantity() - spnSellQuantity.getValue());
         Stage currentStage = (Stage) fldName.getScene().getWindow();
         currentStage.close();

@@ -222,6 +222,7 @@ public class CentralController {
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductForSale() != null) {
+                model.addSale(ctrl.getNewSale());
                 products.removeAll(getProductsDB());
                 getProductInstance().modifyProduct(ctrl.getProductForSale());
                 refreshListContent();

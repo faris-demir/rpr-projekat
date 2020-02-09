@@ -15,9 +15,24 @@ public class WarehouseModel {
     private SimpleObjectProperty<Product> currentProduct = new SimpleObjectProperty<>();
     private Connection connection;
     private PreparedStatement getAllSectors, getAllContainers, getAllProducts;
+    private Transactions transactions = new Transactions();
 
     public Connection getConnection() {
         return connection;
+    }
+
+    public void addSale(Sale sale) {
+        ArrayList<Sale> newSales = new ArrayList<>();
+        newSales.addAll(transactions.getSales());
+        newSales.add(sale);
+        transactions.setSales(newSales);
+    }
+
+    public void addOrder(Order order) {
+        ArrayList<Order> newOrders = new ArrayList<>();
+        newOrders.addAll(transactions.getOrders());
+        newOrders.add(order);
+        transactions.setOrders(newOrders);
     }
 
     private void regenerateDB() {

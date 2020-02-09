@@ -6,8 +6,8 @@ public class Sale extends Transactions {
     private String productName;
     private int soldQuantity;
     private LocalDateTime saleDate;
-    private int price;
-    private int totalPrice;
+    private double price;
+    private double totalPrice;
 
     public String getProductName() {
         return productName;
@@ -33,19 +33,19 @@ public class Sale extends Transactions {
         this.saleDate = saleDate;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 }

@@ -26,7 +26,13 @@ public class OrderController {
         fldPrice.setDisable(true);
 
         fldOrderQuantity.textProperty().addListener(((observableValue, oldVal, newVal) -> {
-            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+            int quantityToOrder;
+            try{
+                quantityToOrder = Integer.parseInt(newVal);
+            } catch (Exception e) {
+                quantityToOrder = 0;
+            }
+            if (!newVal.isEmpty() && quantityToOrder > 0) {
                 fldOrderQuantity.getStyleClass().removeAll("notValidField");
                 fldOrderQuantity.getStyleClass().add("validField");
             } else {
@@ -41,9 +47,11 @@ public class OrderController {
     }
 
     public void confirmAction(ActionEvent actionEvent) {
-        productToOrder.setQuantity(productToOrder.getQuantity() + Integer.parseInt(fldOrderQuantity.getText()));
-        Stage currentStage = (Stage) fldName.getScene().getWindow();
-        currentStage.close();
+        if (fldOrderQuantity.getStyleClass().contains("validField")) {
+            productToOrder.setQuantity(productToOrder.getQuantity() + Integer.parseInt(fldOrderQuantity.getText()));
+            Stage currentStage = (Stage) fldName.getScene().getWindow();
+            currentStage.close();
+        }
     }
 
     public void cancelAction(ActionEvent actionEvent) {
