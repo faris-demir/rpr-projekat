@@ -14,7 +14,7 @@ public class WarehouseModel {
     private ObservableList<Sector> sectors = FXCollections.observableArrayList();
     private SimpleObjectProperty<Product> currentProduct = new SimpleObjectProperty<>();
     private Connection connection;
-    private PreparedStatement getAllSectors, getAllContainers, getAllProducts;
+    private PreparedStatement getAllSectors, getAllContainers, getAllProducts, getAllOrders, getAllSales;
     private Transactions transactions = new Transactions();
 
     public Connection getConnection() {
@@ -82,10 +82,52 @@ public class WarehouseModel {
             getAllProducts = connection.prepareStatement("select p.id, p.name, p.quantity, p.weight, p.unit, p.package_height, p.package_width, p.serial_number, " +
                                                               " p.location_tag, p.purchase_price, p.selling_price, container_id from product p, container c, sector s " +
                                                               "where p.container_id = c.id and c.sector_id = s.id;");
+            getAllOrders = connection.prepareStatement("select * from orders; ");
+            getAllSales = connection.prepareStatement("select * from sales; ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public ArrayList<Order> getOrdersDB() {
+        try {
+            ArrayList<Order> ordersDB = new ArrayList<>();
+            ResultSet rs = getAllOrders.executeQuery();
+            while (rs.next()) {
+                Order newOrder = new Order(rs.getInt(1),
+                                           rs.getString(2),
+                                           rs.getInt(3),
+                                           rs.getTimestamp(4).toLocalDateTime(),
+                                           rs.getDouble(5),
+                                           rs.getDouble(6));
+                ordersDB.add(newOrder);
+            }
+            return ordersDB;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<Sale> getSalesDB() {
+        try {
+            ArrayList<Sale> salesDB = new ArrayList<>();
+            ResultSet rs = getAllOrders.executeQuery();
+            while (rs.next()) {
+                Sale newOrder = new Sale(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getTimestamp(4).toLocalDateTime(),
+                        rs.getDouble(5),
+                        rs.getDouble(6));
+                salesDB.add(newOrder);
+            }
+            return salesDB;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void loadData() {

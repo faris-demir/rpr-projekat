@@ -3,11 +3,29 @@ package ba.unsa.etf.rpr.projekat;
 import java.time.LocalDateTime;
 
 public class Order extends Transactions {
+    private int id;
     private String productName;
     private int orderedQuantity;
     private LocalDateTime orderDate;
     private double price;
     private double totalPrice;
+
+    public Order(int id, String productName, int orderedQuantity, LocalDateTime orderDate, double price, double totalPrice) {
+        this.id = id;
+        this.productName = productName;
+        this.orderedQuantity = orderedQuantity;
+        this.orderDate = orderDate;
+        this.price = price;
+        this.totalPrice = totalPrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getProductName() {
         return productName;

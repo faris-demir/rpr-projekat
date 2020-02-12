@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS "product" (
 	"container_id"	INTEGER,
 	FOREIGN KEY("container_id") REFERENCES "container"("id")
 );
-CREATE TABLE IF NOT EXISTS "sale" (
+CREATE TABLE IF NOT EXISTS "sales" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "product_name" TEXT,
     "sold_quantity" INTEGER,
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS "sale" (
     "product_price" NUMBER,
     "total_price" NUMBER
 );
-CREATE TABLE IF NOT EXISTS "order" (
+CREATE TABLE IF NOT EXISTS "orders" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "product_name" TEXT,
     "ordered_quantity" INTEGER,

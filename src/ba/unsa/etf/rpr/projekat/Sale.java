@@ -3,11 +3,29 @@ package ba.unsa.etf.rpr.projekat;
 import java.time.LocalDateTime;
 
 public class Sale extends Transactions {
+    private int id;
     private String productName;
     private int soldQuantity;
     private LocalDateTime saleDate;
     private double price;
     private double totalPrice;
+
+    public Sale(int id, String productName, int soldQuantity, LocalDateTime saleDate, double price, double totalPrice) {
+        this.id = id;
+        this.productName = productName;
+        this.soldQuantity = soldQuantity;
+        this.saleDate = saleDate;
+        this.price = price;
+        this.totalPrice = totalPrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getProductName() {
         return productName;
