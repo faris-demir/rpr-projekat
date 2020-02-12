@@ -26,6 +26,22 @@ CREATE TABLE IF NOT EXISTS "product" (
 	"container_id"	INTEGER,
 	FOREIGN KEY("container_id") REFERENCES "container"("id")
 );
+CREATE TABLE IF NOT EXISTS "sale" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "product_name" TEXT,
+    "sold_quantity" INTEGER,
+    "sale_date" DATETIME,
+    "product_price" NUMBER,
+    "total_price" NUMBER
+);
+CREATE TABLE IF NOT EXISTS "order" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "product_name" TEXT,
+    "ordered_quantity" INTEGER,
+    "order_date" DATETIME,
+    "product_price" NUMBER,
+    "total_price" NUMBER
+);
 INSERT INTO "sector" VALUES (1,'A',9);
 INSERT INTO "sector" VALUES (2,'B',9);
 INSERT INTO "sector" VALUES (3,'C',9);
