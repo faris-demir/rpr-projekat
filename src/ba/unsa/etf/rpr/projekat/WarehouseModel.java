@@ -14,7 +14,7 @@ public class WarehouseModel {
     private ObservableList<Sector> sectors = FXCollections.observableArrayList();
     private SimpleObjectProperty<Product> currentProduct = new SimpleObjectProperty<>();
     private Connection connection;
-    private PreparedStatement getAllSectors, getAllContainers, getAllProducts, getAllOrders, getAllSales;
+    private PreparedStatement getAllSectors, getAllContainers, getAllProducts, getAllOrders, getAllSales, insertOrder, insertSale, getOrdersMaxId, getSalesMaxId;
     private Transactions transactions = new Transactions();
 
     public Connection getConnection() {
@@ -84,10 +84,42 @@ public class WarehouseModel {
                                                               "where p.container_id = c.id and c.sector_id = s.id;");
             getAllOrders = connection.prepareStatement("select * from orders; ");
             getAllSales = connection.prepareStatement("select * from sales; ");
+            insertSale = connection.prepareStatement("insert into sales values (?,?,?,?,?,?);");
+            insertOrder = connection.prepareStatement("insert into orders values (?,?,?,?,?,?);");
+            getOrdersMaxId = connection.prepareStatement("select Max(id)+1 from orders;");
+            getSalesMaxId = connection.prepareStatement("select Max(id)+1 from sales;");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void insertOrderDB(Order order) {
+        try {
+            insertOrder.setInt(1,getOrdersMaxId.executeQuery().getInt(1));
+            insertOrder.setString(2, order.getProductName());
+            insertOrder.setInt(3, order.getOrderedQuantity());
+            insertOrder.setTimestamp(4, Timestamp.valueOf(order.getOrderDate()));
+            insertOrder.setDouble(5, order.getPrice());
+            insertOrder.setDouble(6, order.getTotalPrice());
+            insertOrder.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertSaleDB(Sale sale) {
+        try {
+            insertSale.setInt(1, getSalesMaxId.executeQuery().getInt(1));
+            insertSale.setString(2, sale.getProductName());
+            insertSale.setInt(3, sale.getSoldQuantity());
+            insertSale.setTimestamp(4, Timestamp.valueOf(sale.getSaleDate()));
+            insertSale.setDouble(5, sale.getPrice());
+            insertSale.setDouble(6, sale.getTotalPrice());
+            insertSale.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<Order> getOrdersDB() {
