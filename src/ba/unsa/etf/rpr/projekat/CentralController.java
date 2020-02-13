@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import static ba.unsa.etf.rpr.projekat.ProductDAO.getProductInstance;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -130,8 +131,8 @@ public class CentralController {
         theStage.close();
 
         LoginController ctrl = new LoginController();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), resourceBundle);
         loader.setController(ctrl);
         Parent root = null;
         try {
@@ -191,7 +192,8 @@ public class CentralController {
     public void registerAction(ActionEvent actionEvent) {
         RegisterController ctrl = new RegisterController(null, products, model.getSectors());
         Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"), resourceBundle);
         loader.setController(ctrl);
         Parent root = null;
         try {
@@ -220,7 +222,8 @@ public class CentralController {
         if (currentProduct == null) return;
         RegisterController ctrl = new RegisterController(currentProduct, products, model.getSectors());
         Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"), resourceBundle);
         loader.setController(ctrl);
         Parent root = null;
         try {
@@ -255,7 +258,7 @@ public class CentralController {
             alert.setContentText("Ova akcija će obrisati proizvod kojeg ste odabrali. Jeste li sigurni da želite nastaviti?");
         }
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             getProductInstance().deleteProduct(currentProduct);
         }
         refreshListContent();
@@ -265,7 +268,8 @@ public class CentralController {
         if (currentProduct == null) return;
         SellController ctrl = new SellController(currentProduct);
         Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sell.fxml"));
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sell.fxml"), resourceBundle);
         loader.setController(ctrl);
         Parent root = null;
         try {
@@ -295,7 +299,8 @@ public class CentralController {
         if (currentProduct == null) return;
         OrderController ctrl = new OrderController(currentProduct);
         Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/order.fxml"));
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/order.fxml"), resourceBundle);
         loader.setController(ctrl);
         Parent root = null;
         try {
@@ -352,11 +357,25 @@ public class CentralController {
         }
     }
 
-    public void itmEnglishAction(ActionEvent actionEvent) {
+    public void refreshLanguageGlobally() {
+        Stage currentStage = (Stage) btnLogout.getScene().getWindow();
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/central.fxml"), resourceBundle);
+        loader.setController(this);
+        try {
+            currentStage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void itmEnglishAction(ActionEvent actionEvent) {
+        Locale.setDefault(new Locale("en", "US"));
+        refreshLanguageGlobally();
     }
 
     public void itmBosanskiAction(ActionEvent actionEvent) {
-
+        Locale.setDefault(new Locale("bs"));
+        refreshLanguageGlobally();
     }
 }

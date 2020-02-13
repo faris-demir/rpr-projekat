@@ -97,7 +97,7 @@ public class ProductDAO {
             updateProduct.setString(1, product.getName());
             updateProduct.setInt(2, product.getQuantity());
             updateProduct.setDouble(3, product.getWeight());
-            updateProduct.setString(4, product.getUnit());
+            updateProduct.setString(4, product.getUnit().toString());
             updateProduct.setDouble(5, product.getPackageHeight());
             updateProduct.setDouble(6, product.getPackageWidth());
             updateProduct.setString(7, product.getSerialNumber());
@@ -121,7 +121,7 @@ public class ProductDAO {
             insertProduct.setString(2, product.getName());
             insertProduct.setInt(3, product.getQuantity());
             insertProduct.setDouble(4, product.getWeight());
-            insertProduct.setString(5, product.getUnit());
+            insertProduct.setString(5, product.getUnit().toString());
             insertProduct.setDouble(6, product.getPackageHeight());
             insertProduct.setDouble(7, product.getPackageWidth());
             insertProduct.setString(8, product.getSerialNumber());

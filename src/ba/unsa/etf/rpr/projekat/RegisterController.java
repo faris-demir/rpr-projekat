@@ -16,7 +16,7 @@ public class RegisterController {
     public TextField fldName;
     public TextField fldQuantity;
     public TextField fldWeight;
-    public ChoiceBox<String> cbUnit;
+    public ChoiceBox<Unit> cbUnit;
     public TextField fldHeight;
     public TextField fldWidth;
     public TextField fldSerial;
@@ -73,10 +73,10 @@ public class RegisterController {
         SpinnerValueFactory<String> sectorValueFactory = new SpinnerValueFactory.ListSpinnerValueFactory<>(sectorObsList);
         spnSector.setValueFactory(sectorValueFactory);
 
-        ObservableList<String> unitObsList = FXCollections.observableArrayList();
-        unitObsList.addAll("tonne","kilogram","gram","liter","milliliter","gallon","barrel","ounce","pound");
+        ObservableList<Unit> unitObsList = FXCollections.observableArrayList();
+        unitObsList.addAll(Unit.values());
         cbUnit.setItems(unitObsList);
-        cbUnit.setValue("tonne");
+        cbUnit.setValue(Unit.tonne);
 
         if (productToModify != null) {
             fldName.setText(productToModify.getName());
@@ -197,7 +197,7 @@ public class RegisterController {
             productToRegister.setName(fldName.getText());
             productToRegister.setQuantity(Integer.parseInt(fldQuantity.getText()));
             productToRegister.setWeight(Double.parseDouble(fldWeight.getText()));
-            productToRegister.setUnit(cbUnit.getSelectionModel().getSelectedItem());
+            productToRegister.setUnit(cbUnit.getSelectionModel().getSelectedItem().toString());
             productToRegister.setPackageHeight(Double.parseDouble(fldHeight.getText()));
             productToRegister.setPackageWidth(Double.parseDouble(fldWidth.getText()));
             productToRegister.setSerialNumber(fldSerial.getText());
