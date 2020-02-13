@@ -59,11 +59,17 @@ public class CentralController {
         tblProducts.refresh();
     }
 
-    private void saveTextToFile(String content, File file) {
+    private void saveTextToFile(Transactions transactions, File file) {
         try {
             PrintWriter writer;
             writer = new PrintWriter(file);
-            writer.println(content);
+            writer.println(">> LOCAL COPY OF TRANSACTIONS <<");
+            writer.println("--------------------------------");
+            writer.println(">> SALES <<");
+            writer.println("");
+            for (Sale sale : transactions.getSales()) {
+
+            }
             writer.close();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -282,7 +288,11 @@ public class CentralController {
     public void saveTransactionsAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save file");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showSaveDialog(btnLogout.getScene().getWindow());
-
+        if (file != null) {
+            saveTextToFile(model.getTransactions(), file);
+        }
     }
 }

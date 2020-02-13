@@ -69,4 +69,10 @@ public class Order extends Transactions {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Product name: " + getProductName() + ", ordered qunatity: " + getOrderedQuantity() + ", order date: " + getOrderDate() +
+                ", price of product: " + getPrice() + ", total price of order: " + getTotalPrice();
+    }
 }

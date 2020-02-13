@@ -69,4 +69,10 @@ public class Sale extends Transactions {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Product name: " + getProductName() + ", sold qunatity: " + getSoldQuantity() + ", sale date: " + getSaleDate() +
+                ", price of product: " + getPrice() + ", total amount sold: " + getTotalPrice();
+    }
 }

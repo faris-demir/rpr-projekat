@@ -22,6 +22,10 @@ public class WarehouseModel {
         return connection;
     }
 
+    public Transactions getTransactions() {
+        return transactions;
+    }
+
     public void addSale(Sale sale) {
         ArrayList<Sale> newSales = new ArrayList<>();
         newSales.addAll(transactions.getSales());
