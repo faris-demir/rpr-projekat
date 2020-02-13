@@ -27,6 +27,7 @@ public class RegisterController {
     private Product productToRegister = null;
     private Product productToModify = null;
     private ObservableList<Product> products = FXCollections.observableArrayList();
+    private ObservableList<Container> containers = FXCollections.observableArrayList();
 
     public Product getProductToRegister() {
         return productToRegister;
@@ -36,13 +37,28 @@ public class RegisterController {
         return productToModify;
     }
 
-    public RegisterController(Product productToModify, ObservableList<Product> products) {
+    public RegisterController(Product productToModify, ObservableList<Product> products, ObservableList<Sector> sectors) {
         this.productToModify = productToModify;
         this.products = products;
+        for (Sector sector : sectors) {
+            containers.addAll(sector.getContainers());
+            break;
+        }
     }
 
-    public boolean isSerialNumberLegal(String testSerial) {
+    private boolean isSerialNumberLegal(String testSerial) {
         return products.stream().noneMatch(product -> product.getSerialNumber().equals(testSerial));
+    }
+
+    //todo ovdje mozda mozes neku lambdu napisat ili nesto tako
+    private boolean canThePackageFit(double testWidth, double testHeight, String containerTag) {
+        double maxContainerCapacity = containers.stream().
+                filter(container -> container.getTag().equals(containerTag)).
+                mapToDouble(Container::getCapacity).sum();
+        double occupiedSpaceVolume = products.stream().
+                filter(product -> product.getLocationTag().charAt(1) == containerTag).
+                mapToDouble(product -> product.getPackageWidth() * product.getPackageWidth() * product.getPackageHeight()).sum();
+        return occupiedSpaceVolume + (testWidth * testWidth * testHeight) <= maxContainerCapacity;
     }
 
     @FXML
@@ -125,9 +141,6 @@ public class RegisterController {
         }));
 
         fldSerial.textProperty().addListener(((obs, oldVal, newVal) -> {
-
-            if (!isSerialNumberLegal(newVal));
-
             if (!newVal.isEmpty()) {
                 fldSerial.getStyleClass().removeAll("notValidField");
                 fldSerial.getStyleClass().add("validField");
@@ -165,6 +178,11 @@ public class RegisterController {
     }
 
     public void confirmAction(ActionEvent actionEvent) {
+        try {
+            if (!isSerialNumberLegal(fldSerial.getText())) throw new IllegalSerialNumberException();
+        } catch (IllegalSerialNumberException e) {
+            return;
+        }
         if (readyToRegister() || productToModify != null) {
             productToRegister = new Product();
             productToRegister.setName(fldName.getText());
@@ -177,6 +195,7 @@ public class RegisterController {
             productToRegister.setLocationTag(spnSector.getValue() + spnContainer.getValue());
             productToRegister.setPurchasePrice(Double.parseDouble(fldPurchasePrice.getText()));
             productToRegister.setSellingPrice(Double.parseDouble(fldSellingPrice.getText()));
+
             if (productToModify == null) productToRegister.setId(getProductInstance().getMaxProductId());
             if (productToModify != null) {
                 productToRegister.setId(productToModify.getId());

@@ -140,7 +140,7 @@ public class CentralController {
     }
 
     public void registerAction(ActionEvent actionEvent) {
-        RegisterController ctrl = new RegisterController(null, products);
+        RegisterController ctrl = new RegisterController(null, products, model.getSectors());
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
         loader.setController(ctrl);
@@ -165,7 +165,7 @@ public class CentralController {
 
     public void modifyAction(ActionEvent actionEvent) {
         if (currentProduct == null) return;
-        RegisterController ctrl = new RegisterController(currentProduct, products);
+        RegisterController ctrl = new RegisterController(currentProduct, products, model.getSectors());
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
         loader.setController(ctrl);
