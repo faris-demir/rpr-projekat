@@ -265,10 +265,13 @@ public class CentralController {
         } catch (JRException e1) {
             e1.printStackTrace();
         }
-
     }
 
     public void orderReportAction(ActionEvent actionEvent) {
-
+        try {
+            new OrdersReport().showReport(WarehouseModel.getConnection());
+        } catch (JRException e1) {
+            e1.printStackTrace();
+        }
     }
 }
