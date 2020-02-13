@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.IOException;
 
@@ -259,6 +260,11 @@ public class CentralController {
     }
 
     public void salesReportAction(ActionEvent actionEvent) {
+        try {
+            new SalesReport().showReport(WarehouseModel.getConnection());
+        } catch (JRException e1) {
+            e1.printStackTrace();
+        }
 
     }
 

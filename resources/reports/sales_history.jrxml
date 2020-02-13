@@ -22,6 +22,15 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#5BD0F0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
@@ -31,43 +40,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table 1_CH" mode="Opaque" backcolor="#A6DDF1">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<subDataset name="Dataset1" uuid="1dd6a9d1-b01e-4079-9a2f-1bb16b0f7c6e">
+	<subDataset name="Dataset1" uuid="6f87a5d7-2da7-4c0d-bf22-d6fb1de28de0">
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Projekat.xml"/>
 		<queryString language="SQL">
@@ -111,60 +84,15 @@ from sales]]>
 		</group>
 	</subDataset>
 	<queryString language="SQL">
-		<![CDATA[select * from sales]]>
+		<![CDATA[select id from sales where id=0]]>
 	</queryString>
-	<field name="id" class="java.lang.Object">
-		<property name="com.jaspersoft.studio.field.label" value="id"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
-	</field>
-	<field name="product_name" class="java.lang.Object">
-		<property name="com.jaspersoft.studio.field.label" value="product_name"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
-	</field>
-	<field name="sold_quantity" class="java.lang.Object">
-		<property name="com.jaspersoft.studio.field.label" value="sold_quantity"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
-	</field>
-	<field name="sale_date" class="java.lang.Object">
-		<property name="com.jaspersoft.studio.field.label" value="sale_date"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
-	</field>
-	<field name="product_price" class="java.lang.Object">
-		<property name="com.jaspersoft.studio.field.label" value="product_price"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
-	</field>
-	<field name="total_price" class="java.lang.Object">
-		<property name="com.jaspersoft.studio.field.label" value="total_price"/>
-		<property name="com.jaspersoft.studio.field.tree.path" value="sales"/>
-	</field>
-	<group name="Group1">
-		<groupExpression><![CDATA[$F{id}]]></groupExpression>
-		<groupFooter>
-			<band height="6"/>
-		</groupFooter>
-	</group>
-	<group name="Group2">
-		<groupExpression><![CDATA[$F{product_name}]]></groupExpression>
-	</group>
-	<group name="sold_quantity">
-		<groupExpression><![CDATA[$F{sold_quantity}]]></groupExpression>
-	</group>
-	<group name="sale_date">
-		<groupExpression><![CDATA[$F{sale_date}]]></groupExpression>
-	</group>
-	<group name="product_price">
-		<groupExpression><![CDATA[$F{product_price}]]></groupExpression>
-	</group>
-	<group name="total_price">
-		<groupExpression><![CDATA[$F{total_price}]]></groupExpression>
-	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="770" height="66" backcolor="#000000" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<reportElement mode="Opaque" x="0" y="0" width="790" height="66" backcolor="#000000" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
 				<staticText>
 					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
@@ -174,7 +102,7 @@ from sales]]>
 					<text><![CDATA[Sales report]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="387" height="29" uuid="cfa21334-0634-4605-9ea7-aca4981f67e4"/>
+					<reportElement style="SubTitle" x="370" y="37" width="410" height="29" uuid="cfa21334-0634-4605-9ea7-aca4981f67e4"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
@@ -182,9 +110,9 @@ from sales]]>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="2" y="70" width="768" height="32" forecolor="#000000" backcolor="#B5E4F5" uuid="b0c895f6-6dbd-477d-9858-9ad66af087e1"/>
+				<reportElement mode="Opaque" x="0" y="70" width="790" height="32" forecolor="#000000" backcolor="#59BEE3" uuid="b0c895f6-6dbd-477d-9858-9ad66af087e1"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="553" y="12" width="194" height="20" forecolor="#FFFFFF" uuid="a33fce3b-20c1-4696-873a-fe134d1e7d88"/>
+					<reportElement x="553" y="12" width="227" height="20" forecolor="#FFFFFF" uuid="a33fce3b-20c1-4696-873a-fe134d1e7d88"/>
 					<textElement textAlignment="Right">
 						<font size="12"/>
 					</textElement>
@@ -200,105 +128,105 @@ from sales]]>
 		<band height="18" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="106" splitType="Stretch">
+		<band height="90" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="106" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="90" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
 				<componentElement>
-					<reportElement x="0" y="9" width="780" height="91" backcolor="#A6DCF1" uuid="5fe1f9d8-65cc-49ca-b699-26c187bd90f0">
+					<reportElement x="9" y="9" width="781" height="71" uuid="0e15d391-d1a8-4ff6-8fb4-c576da5fd6e7">
 						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
-						<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
-						<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
-						<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+						<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+						<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+						<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
 					</reportElement>
 					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-						<datasetRun subDataset="Dataset1" uuid="7a244f31-38d0-45dd-838b-6b844867ef70">
+						<datasetRun subDataset="Dataset1" uuid="82d9422f-ecdb-433f-abb6-8aba7a01cbf4">
 							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 						</datasetRun>
-						<jr:column width="154" uuid="32fa5410-c2e4-4c3a-96dc-ec1aed9954ba">
-							<jr:columnHeader style="Table 1_CH" height="30">
+						<jr:column width="156" uuid="bedea651-1c34-4a39-ac19-1cb3a09ddad9">
+							<jr:columnHeader style="Table_CH" height="30">
 								<staticText>
-									<reportElement x="0" y="0" width="154" height="30" uuid="d4723159-8a80-4597-8c3c-403598a8973a"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="5153705a-1a04-417a-85bf-f2e8d9801d58"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="13" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Product name]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:detailCell style="Table 1_TD" height="30">
+							<jr:detailCell style="Table_TD" height="30">
 								<textField>
-									<reportElement x="0" y="0" width="154" height="30" uuid="33a8916b-057c-42c0-8f0d-d805090f883a"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="7c31a7e0-f3bb-4462-a2cb-1bd2e6483ab8"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
-						<jr:column width="154" uuid="463dbf64-5b35-4b53-bb19-ea28ae2f308b">
-							<jr:columnHeader style="Table 1_CH" height="30">
+						<jr:column width="156" uuid="e81502fd-1ffb-42b3-b3c9-13918e87ffd9">
+							<jr:columnHeader style="Table_CH" height="30">
 								<staticText>
-									<reportElement x="0" y="0" width="154" height="30" uuid="e5f5af68-0793-4859-a3b5-2b93ba928a83"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="c8d13b8d-bf36-4e48-bb64-ca375cc9ee71"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
-										<font size="13" isBold="false"/>
+										<font size="13" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Sold quantity]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:detailCell style="Table 1_TD" height="30">
+							<jr:detailCell style="Table_TD" height="30">
 								<textField>
-									<reportElement x="0" y="0" width="154" height="30" uuid="41acb4d5-b9ef-416b-bb03-d6413c0a6d3d"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="a07c75ce-7972-44bb-808a-4a2234960062"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{sold_quantity}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
-						<jr:column width="154" uuid="ad1d6583-4463-4ba3-9024-dfa7fdcb00b5">
-							<jr:columnHeader style="Table 1_CH" height="30">
+						<jr:column width="156" uuid="381eb306-56e9-442d-ac54-0fd98dc4c099">
+							<jr:columnHeader style="Table_CH" height="30">
 								<staticText>
-									<reportElement x="0" y="0" width="154" height="30" uuid="04d0f546-7422-4c73-9556-a2314821ed9e"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="d9802c74-4c90-4bb6-8bd6-32a03121170a"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="13" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Sale date]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:detailCell style="Table 1_TD" height="30">
+							<jr:detailCell style="Table_TD" height="30">
 								<textField>
-									<reportElement x="0" y="0" width="154" height="30" uuid="ed27c3e1-0879-4772-beb4-047c848f86e8"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="3c3e9058-ccf3-46b1-8654-0c2aae3151b4"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{sale_date}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
-						<jr:column width="154" uuid="dfe9477e-6593-4265-b46a-f5579b31dee6">
-							<jr:columnHeader style="Table 1_CH" height="30">
+						<jr:column width="156" uuid="1fa31e72-35e4-423f-a124-d014c143fb28">
+							<jr:columnHeader style="Table_CH" height="30">
 								<staticText>
-									<reportElement x="0" y="0" width="154" height="30" uuid="eb703c78-2f4e-4253-9220-6ebafbd69033"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="5b4c2a9d-0b8e-493d-b654-9aefd9ee2627"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="13" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Product price]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:detailCell style="Table 1_TD" height="30">
+							<jr:detailCell style="Table_TD" height="30">
 								<textField>
-									<reportElement x="0" y="0" width="154" height="30" uuid="c5157012-f3d0-47c4-848c-7a4343cd1342"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="141f048d-0ac5-4b06-be85-8b8d4cfb9721"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{product_price}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
-						<jr:column width="154" uuid="8fe9b83a-9d65-4eb2-bf44-a37139c19918">
-							<jr:columnHeader style="Table 1_CH" height="30">
+						<jr:column width="156" uuid="d7d176f3-c386-4f91-bdaf-c35ea50b0772">
+							<jr:columnHeader style="Table_CH" height="30">
 								<staticText>
-									<reportElement x="0" y="0" width="154" height="30" uuid="98fdf31d-c7b8-432a-91a4-fe4694b5d873"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="6e688399-050b-4c3c-88be-d482133b961f"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle">
 										<font size="13" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Total price]]></text>
 								</staticText>
 							</jr:columnHeader>
-							<jr:detailCell style="Table 1_TD" height="30">
+							<jr:detailCell style="Table_TD" height="30">
 								<textField>
-									<reportElement x="0" y="0" width="154" height="30" uuid="c928a6f4-ee20-4914-97f5-71ee7de69386"/>
+									<reportElement x="0" y="0" width="156" height="30" uuid="7fc4358b-a1a1-447b-96c7-a6a33f534d1f"/>
 									<textElement textAlignment="Center" verticalAlignment="Middle"/>
 									<textFieldExpression><![CDATA[$F{total_price}]]></textFieldExpression>
 								</textField>

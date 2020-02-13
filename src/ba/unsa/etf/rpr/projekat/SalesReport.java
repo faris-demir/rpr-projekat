@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class SalesReport extends JFrame {
     public void showReport(Connection conn) throws JRException {
-        String reportSrcFile = getClass().getResource("/reports/biblioteka.jrxml").getFile();
+        String reportSrcFile = getClass().getResource("/reports/sales_history.jrxml").getFile();
         String reportsDir = getClass().getResource("/reports/").getFile();
 
         JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
@@ -23,8 +23,9 @@ public class SalesReport extends JFrame {
         JRViewer viewer = new JRViewer(print);
         viewer.setOpaque(true);
         viewer.setVisible(true);
+        viewer.setZoomRatio((float) 0.6);
         this.add(viewer);
-        this.setSize(700, 500);
+        this.setSize(950, 650);
         this.setVisible(true);
     }
 }
