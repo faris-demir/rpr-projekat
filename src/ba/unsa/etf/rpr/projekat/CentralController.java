@@ -65,11 +65,14 @@ public class CentralController {
             writer = new PrintWriter(file);
             writer.println(">> LOCAL COPY OF TRANSACTIONS <<");
             writer.println("--------------------------------");
+            writer.println("");
             writer.println(">> SALES <<");
             writer.println("");
-            for (Sale sale : transactions.getSales()) {
-
-            }
+            transactions.getSales().forEach(writer::println);
+            writer.println("");
+            writer.println(">> ORDERS <<");
+            writer.println("");
+            transactions.getOrders().forEach(writer::println);
             writer.close();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -80,6 +83,10 @@ public class CentralController {
     void initialize() {
         products = model.getProductsDB();
         tblProducts.setItems(products);
+        Transactions transactions = new Transactions();
+        transactions.setOrders(model.getOrdersDB());
+        transactions.setSales(model.getSalesDB());
+        model.setTransactions(transactions);
 
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));

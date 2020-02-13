@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,6 +18,7 @@ public class WarehouseModel {
     private static Connection connection;
     private PreparedStatement getAllSectors, getAllContainers, getAllProducts, getAllOrders, getAllSales, insertOrder, insertSale, getOrdersMaxId, getSalesMaxId;
     private Transactions transactions = new Transactions();
+    private DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     public static Connection getConnection() {
         return connection;
@@ -24,6 +26,10 @@ public class WarehouseModel {
 
     public Transactions getTransactions() {
         return transactions;
+    }
+
+    public void setTransactions(Transactions transactions) {
+        this.transactions = transactions;
     }
 
     public void addSale(Sale sale) {
@@ -111,7 +117,6 @@ public class WarehouseModel {
 
     public void insertOrderDB(Order order) {
         try {
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String formatDateTime = order.getOrderDate().format(format);
             insertOrder.setInt(1,getOrdersMaxId.executeQuery().getInt(1));
             insertOrder.setString(2, order.getProductName());
@@ -127,7 +132,6 @@ public class WarehouseModel {
 
     public void insertSaleDB(Sale sale) {
         try {
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             String formatDateTime = sale.getSaleDate().format(format);
             insertSale.setInt(1, getSalesMaxId.executeQuery().getInt(1));
             insertSale.setString(2, sale.getProductName());
@@ -147,11 +151,11 @@ public class WarehouseModel {
             ResultSet rs = getAllOrders.executeQuery();
             while (rs.next()) {
                 Order newOrder = new Order(rs.getInt(1),
-                                           rs.getString(2),
-                                           rs.getInt(3),
-                                           rs.getTimestamp(4).toLocalDateTime(),
-                                           rs.getDouble(5),
-                                           rs.getDouble(6));
+                        rs.getString(2),
+                        rs.getInt(3),
+                        LocalDateTime.parse(rs.getString(4), format),
+                        rs.getDouble(5),
+                        rs.getDouble(6));
                 ordersDB.add(newOrder);
             }
             return ordersDB;
@@ -164,15 +168,15 @@ public class WarehouseModel {
     public ArrayList<Sale> getSalesDB() {
         try {
             ArrayList<Sale> salesDB = new ArrayList<>();
-            ResultSet rs = getAllOrders.executeQuery();
+            ResultSet rs = getAllSales.executeQuery();
             while (rs.next()) {
-                Sale newOrder = new Sale(rs.getInt(1),
+                Sale newSale = new Sale(rs.getInt(1),
                         rs.getString(2),
                         rs.getInt(3),
-                        rs.getTimestamp(4).toLocalDateTime(),
+                        LocalDateTime.parse(rs.getString(4), format),
                         rs.getDouble(5),
                         rs.getDouble(6));
-                salesDB.add(newOrder);
+                salesDB.add(newSale);
             }
             return salesDB;
         } catch (SQLException e) {

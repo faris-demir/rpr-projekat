@@ -72,7 +72,7 @@ public class Sale extends Transactions {
 
     @Override
     public String toString() {
-        return "Product name: " + getProductName() + ", sold qunatity: " + getSoldQuantity() + ", sale date: " + getSaleDate() +
+        return "Product name: " + getProductName() + ", sold quantity: " + getSoldQuantity() + ", sale date: " + getSaleDate() +
                 ", price of product: " + getPrice() + ", total amount sold: " + getTotalPrice();
     }
 }

@@ -72,7 +72,7 @@ public class Order extends Transactions {
 
     @Override
     public String toString() {
-        return "Product name: " + getProductName() + ", ordered qunatity: " + getOrderedQuantity() + ", order date: " + getOrderDate() +
+        return "Product name: " + getProductName() + ", ordered quantity: " + getOrderedQuantity() + ", order date: " + getOrderDate() +
                 ", price of product: " + getPrice() + ", total price of order: " + getTotalPrice();
     }
 }
