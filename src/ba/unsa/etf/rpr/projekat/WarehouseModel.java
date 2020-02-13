@@ -7,17 +7,18 @@ import javafx.collections.ObservableList;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WarehouseModel {
     private ObservableList<Sector> sectors = FXCollections.observableArrayList();
     private SimpleObjectProperty<Product> currentProduct = new SimpleObjectProperty<>();
-    private Connection connection;
+    private static Connection connection;
     private PreparedStatement getAllSectors, getAllContainers, getAllProducts, getAllOrders, getAllSales, insertOrder, insertSale, getOrdersMaxId, getSalesMaxId;
     private Transactions transactions = new Transactions();
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         return connection;
     }
 
@@ -96,10 +97,12 @@ public class WarehouseModel {
 
     public void insertOrderDB(Order order) {
         try {
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            String formatDateTime = order.getOrderDate().format(format);
             insertOrder.setInt(1,getOrdersMaxId.executeQuery().getInt(1));
             insertOrder.setString(2, order.getProductName());
             insertOrder.setInt(3, order.getOrderedQuantity());
-            insertOrder.setTimestamp(4, Timestamp.valueOf(order.getOrderDate()));
+            insertOrder.setString(4, formatDateTime);
             insertOrder.setDouble(5, order.getPrice());
             insertOrder.setDouble(6, order.getTotalPrice());
             insertOrder.executeUpdate();
@@ -110,10 +113,12 @@ public class WarehouseModel {
 
     public void insertSaleDB(Sale sale) {
         try {
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            String formatDateTime = sale.getSaleDate().format(format);
             insertSale.setInt(1, getSalesMaxId.executeQuery().getInt(1));
             insertSale.setString(2, sale.getProductName());
             insertSale.setInt(3, sale.getSoldQuantity());
-            insertSale.setTimestamp(4, Timestamp.valueOf(sale.getSaleDate()));
+            insertSale.setString(4, formatDateTime);
             insertSale.setDouble(5, sale.getPrice());
             insertSale.setDouble(6, sale.getTotalPrice());
             insertSale.executeUpdate();

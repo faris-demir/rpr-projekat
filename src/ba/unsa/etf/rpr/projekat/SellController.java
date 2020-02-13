@@ -48,6 +48,7 @@ public class SellController {
         newSale.setPrice(productForSale.getSellingPrice());
         newSale.setTotalPrice(productForSale.getSellingPrice() * spnSellQuantity.getValue());
         newSale.setSaleDate(LocalDateTime.now());
+        newSale.setTotalPrice(newSale.getPrice() * newSale.getSoldQuantity());
         productForSale.setQuantity(productForSale.getQuantity() - spnSellQuantity.getValue());
         Stage currentStage = (Stage) fldName.getScene().getWindow();
         currentStage.close();

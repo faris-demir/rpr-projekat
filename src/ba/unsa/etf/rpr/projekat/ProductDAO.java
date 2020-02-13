@@ -2,7 +2,10 @@ package ba.unsa.etf.rpr.projekat;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class ProductDAO {
@@ -54,22 +57,7 @@ public class ProductDAO {
     }
 
     public ProductDAO() {
-        try {
-            connection = DriverManager.getConnection("jdbc:sqlite:warehouse.db");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            PreparedStatement getAllData = connection.prepareStatement("SELECT * FROM sector s, container c, product p where c.sector_id = s.id and p.container_id = c.id;");
-        } catch (SQLException e) {
-            regenerateDB();
-            try {
-                PreparedStatement getAllData = connection.prepareStatement("SELECT * FROM sector s, container c, product p where c.sector_id = s.id and p.container_id = c.id;");
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
+        connection = WarehouseModel.getConnection();
 
         try {
             insertProduct = connection.prepareStatement("insert into product values (?,?,?,?,?,?,?,?,?,?,?,?);");

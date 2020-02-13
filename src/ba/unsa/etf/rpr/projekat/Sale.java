@@ -10,6 +10,9 @@ public class Sale extends Transactions {
     private double price;
     private double totalPrice;
 
+    public Sale() {
+    }
+
     public Sale(int id, String productName, int soldQuantity, LocalDateTime saleDate, double price, double totalPrice) {
         this.id = id;
         this.productName = productName;

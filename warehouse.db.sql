@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS "sales" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "product_name" TEXT,
     "sold_quantity" INTEGER,
-    "sale_date" DATETIME,
+    "sale_date" TEXT,
     "product_price" NUMBER,
     "total_price" NUMBER
 );
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS "orders" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "product_name" TEXT,
     "ordered_quantity" INTEGER,
-    "order_date" DATETIME,
+    "order_date" TEXT,
     "product_price" NUMBER,
     "total_price" NUMBER
 );

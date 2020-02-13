@@ -10,6 +10,9 @@ public class Order extends Transactions {
     private double price;
     private double totalPrice;
 
+    public Order() {
+    }
+
     public Order(int id, String productName, int orderedQuantity, LocalDateTime orderDate, double price, double totalPrice) {
         this.id = id;
         this.productName = productName;

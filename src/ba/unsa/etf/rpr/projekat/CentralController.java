@@ -223,6 +223,7 @@ public class CentralController {
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductForSale() != null) {
                 model.addSale(ctrl.getNewSale());
+                model.insertSaleDB(ctrl.getNewSale());
                 products.removeAll(getProductsDB());
                 getProductInstance().modifyProduct(ctrl.getProductForSale());
                 refreshListContent();
@@ -248,6 +249,7 @@ public class CentralController {
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductToOrder() != null) {
                 model.addOrder(ctrl.getNewOrder());
+                model.insertOrderDB(ctrl.getNewOrder());
                 products.removeAll(getProductsDB());
                 getProductInstance().modifyProduct(ctrl.getProductToOrder());
                 refreshListContent();
