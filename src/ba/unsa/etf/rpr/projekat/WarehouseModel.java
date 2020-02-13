@@ -95,6 +95,16 @@ public class WarehouseModel {
 
     }
 
+    public ObservableList<Product> getProductsDB() {
+        ObservableList<Product> productsDB = FXCollections.observableArrayList();
+        for (Sector s : sectors) {
+            for (Container c : s.getContainers()) {
+                productsDB.addAll(c.getProducts());
+            }
+        }
+        return productsDB;
+    }
+
     public void insertOrderDB(Order order) {
         try {
             DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");

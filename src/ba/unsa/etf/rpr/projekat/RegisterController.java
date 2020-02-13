@@ -26,6 +26,7 @@ public class RegisterController {
     public TextField fldSellingPrice;
     private Product productToRegister = null;
     private Product productToModify = null;
+    private ObservableList<Product> products = FXCollections.observableArrayList();
 
     public Product getProductToRegister() {
         return productToRegister;
@@ -35,8 +36,13 @@ public class RegisterController {
         return productToModify;
     }
 
-    public RegisterController(Product productToModify) {
+    public RegisterController(Product productToModify, ObservableList<Product> products) {
         this.productToModify = productToModify;
+        this.products = products;
+    }
+
+    public boolean isSerialNumberLegal(String testSerial) {
+        return products.stream().noneMatch(product -> product.getSerialNumber().equals(testSerial));
     }
 
     @FXML
@@ -119,6 +125,9 @@ public class RegisterController {
         }));
 
         fldSerial.textProperty().addListener(((obs, oldVal, newVal) -> {
+
+            if (!isSerialNumberLegal(newVal));
+
             if (!newVal.isEmpty()) {
                 fldSerial.getStyleClass().removeAll("notValidField");
                 fldSerial.getStyleClass().add("validField");

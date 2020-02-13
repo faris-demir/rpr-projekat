@@ -49,26 +49,16 @@ public class CentralController {
         this.model = model;
     }
 
-    public ObservableList<Product> getProductsDB() {
-        ObservableList<Product> productsDB = FXCollections.observableArrayList();
-        for (Sector s : model.getSectors()) {
-            for (Container c : s.getContainers()) {
-                productsDB.addAll(c.getProducts());
-            }
-        }
-        return productsDB;
-    }
-
     public void refreshListContent() {
         model.loadData();
-        products.setAll(getProductsDB());
+        products.setAll(model.getProductsDB());
         tblProducts.setItems(products);
         tblProducts.refresh();
     }
 
     @FXML
     void initialize() {
-        products = getProductsDB();
+        products = model.getProductsDB();
         tblProducts.setItems(products);
 
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -150,7 +140,7 @@ public class CentralController {
     }
 
     public void registerAction(ActionEvent actionEvent) {
-        RegisterController ctrl = new RegisterController(null);
+        RegisterController ctrl = new RegisterController(null, products);
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
         loader.setController(ctrl);
@@ -175,7 +165,7 @@ public class CentralController {
 
     public void modifyAction(ActionEvent actionEvent) {
         if (currentProduct == null) return;
-        RegisterController ctrl = new RegisterController(currentProduct);
+        RegisterController ctrl = new RegisterController(currentProduct, products);
         Stage primaryStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/register.fxml"));
         loader.setController(ctrl);
@@ -189,7 +179,7 @@ public class CentralController {
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductToModify() != null) {
-                products.removeAll(getProductsDB());
+                products.removeAll(model.getProductsDB());
                 getProductInstance().modifyProduct(ctrl.getProductToModify());
                 refreshListContent();
             }
@@ -225,7 +215,7 @@ public class CentralController {
             if (ctrl.getProductForSale() != null) {
                 model.addSale(ctrl.getNewSale());
                 model.insertSaleDB(ctrl.getNewSale());
-                products.removeAll(getProductsDB());
+                products.removeAll(model.getProductsDB());
                 getProductInstance().modifyProduct(ctrl.getProductForSale());
                 refreshListContent();
             }
@@ -251,7 +241,7 @@ public class CentralController {
             if (ctrl.getProductToOrder() != null) {
                 model.addOrder(ctrl.getNewOrder());
                 model.insertOrderDB(ctrl.getNewOrder());
-                products.removeAll(getProductsDB());
+                products.removeAll(model.getProductsDB());
                 getProductInstance().modifyProduct(ctrl.getProductToOrder());
                 refreshListContent();
             }
