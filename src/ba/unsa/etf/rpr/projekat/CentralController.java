@@ -9,10 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import static ba.unsa.etf.rpr.projekat.ProductDAO.getProductInstance;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -49,11 +52,22 @@ public class CentralController {
         this.model = model;
     }
 
-    public void refreshListContent() {
+    private void refreshListContent() {
         model.loadData();
         products.setAll(model.getProductsDB());
         tblProducts.setItems(products);
         tblProducts.refresh();
+    }
+
+    private void saveTextToFile(String content, File file) {
+        try {
+            PrintWriter writer;
+            writer = new PrintWriter(file);
+            writer.println(content);
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML
@@ -263,5 +277,12 @@ public class CentralController {
         } catch (JRException e1) {
             e1.printStackTrace();
         }
+    }
+
+    public void saveTransactionsAction(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save file");
+        File file = fileChooser.showSaveDialog(btnLogout.getScene().getWindow());
+
     }
 }
