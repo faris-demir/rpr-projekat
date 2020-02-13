@@ -302,4 +302,12 @@ public class CentralController {
             saveTextToFile(model.getTransactions(), file);
         }
     }
+
+    public void itmEnglishAction(ActionEvent actionEvent) {
+
+    }
+
+    public void itmBosanskiAction(ActionEvent actionEvent) {
+
+    }
 }
