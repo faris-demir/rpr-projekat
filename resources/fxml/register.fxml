@@ -24,57 +24,57 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Name:" GridPane.halignment="RIGHT">
+      <Label text="%lblName" GridPane.halignment="RIGHT">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Quantity:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <Label text="%lblQuantity" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Weight:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <Label text="%lblWeight" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Unit:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Label text="%lblUnit" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Height of package:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+      <Label text="%lblHeightPackage" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Width of package:" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+      <Label text="%lblWidthPackage" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Serial number:" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+      <Label text="%lblSerialNo" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Sector name:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <Label text="%lblSectorName" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Container number:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+      <Label text="%lblContainerName" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Purchase price:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+      <Label text="%lblPurchasePrice" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Selling price:" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+      <Label text="%lblSellingPrice" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets right="15.0" />
          </GridPane.margin>
@@ -103,8 +103,8 @@
       </TextField>
       <ButtonBar prefHeight="72.0" prefWidth="278.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="6">
         <buttons>
-          <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#confirmAction" prefHeight="40.0" prefWidth="103.0" text="Confirm" />
-            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="103.0" text="Cancel" />
+          <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#confirmAction" prefHeight="40.0" prefWidth="103.0" text="%btnConfirm" />
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="40.0" prefWidth="103.0" text="%btnCancel" />
         </buttons>
          <GridPane.margin>
             <Insets bottom="20.0" right="20.0" />

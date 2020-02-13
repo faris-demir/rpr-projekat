@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.projekat;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 public class Sale extends Transactions {
     private int id;
@@ -72,7 +73,11 @@ public class Sale extends Transactions {
 
     @Override
     public String toString() {
-        return "Product name: " + getProductName() + ", sold quantity: " + getSoldQuantity() + ", sale date: " + getSaleDate() +
-                ", price of product: " + getPrice() + ", total amount sold: " + getTotalPrice();
+        if (Locale.getDefault().getCountry().equals("en")) {
+            return "Product name: " + getProductName() + ", sold quantity: " + getSoldQuantity() + ", sale date: " + getSaleDate() +
+                    ", price of product: " + getPrice() + ", total amount sold: " + getTotalPrice();
+        }
+        return "Naziv artikla: " + getProductName() + ", prodana količina: " + getSoldQuantity() + ", datum prodaje: " + getSaleDate() +
+                ", cijena artikla: " + getPrice() + ", ukupna cijena: " + getTotalPrice();
     }
 }

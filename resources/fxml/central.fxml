@@ -7,55 +7,55 @@
    <children>
       <VBox layoutY="35.0" prefHeight="618.0" prefWidth="148.0">
          <children>
-            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#registerAction" prefHeight="94.0" prefWidth="153.0" text="Register new product" />
-            <Button fx:id="btnModify" mnemonicParsing="false" onAction="#modifyAction" prefHeight="89.0" prefWidth="159.0" text="Modify product" />
-            <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#removeAction" prefHeight="96.0" prefWidth="152.0" text="Remove product" />
-            <Button fx:id="btnSell" mnemonicParsing="false" onAction="#sellAction" prefHeight="74.0" prefWidth="151.0" text="Sell" />
-            <Button fx:id="btnOrder" mnemonicParsing="false" onAction="#orderAction" prefHeight="71.0" prefWidth="151.0" text="Order" />
-            <Button fx:id="btnSalesReport" mnemonicParsing="false" onAction="#salesReportAction" prefHeight="65.0" prefWidth="159.0" text="Sales report" />
-            <Button fx:id="btnOrderReport" mnemonicParsing="false" onAction="#orderReportAction" prefHeight="69.0" prefWidth="155.0" text="Order report" />
-            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutAction" prefHeight="95.0" prefWidth="153.0" text="Log out" />
+            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#registerAction" prefHeight="94.0" prefWidth="153.0" text="%btnRegisterProduct" />
+            <Button fx:id="btnModify" mnemonicParsing="false" onAction="#modifyAction" prefHeight="89.0" prefWidth="159.0" text="%btnModifyProduct" />
+            <Button fx:id="btnRemove" mnemonicParsing="false" onAction="#removeAction" prefHeight="96.0" prefWidth="152.0" text="%btnRemoveProduct" />
+            <Button fx:id="btnSell" mnemonicParsing="false" onAction="#sellAction" prefHeight="74.0" prefWidth="151.0" text="%btnSell" />
+            <Button fx:id="btnOrder" mnemonicParsing="false" onAction="#orderAction" prefHeight="71.0" prefWidth="151.0" text="%btnOrder" />
+            <Button fx:id="btnSalesReport" mnemonicParsing="false" onAction="#salesReportAction" prefHeight="65.0" prefWidth="159.0" text="%btnSaleReport" />
+            <Button fx:id="btnOrderReport" mnemonicParsing="false" onAction="#orderReportAction" prefHeight="69.0" prefWidth="155.0" text="%btnOrderReport" />
+            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutAction" prefHeight="95.0" prefWidth="153.0" text="%btnLogOut" />
          </children>
       </VBox>
       <TableView fx:id="tblProducts" layoutX="160.0" layoutY="84.0" prefHeight="569.0" prefWidth="944.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="35.999969482421875" text="ID" />
-          <TableColumn fx:id="colName" prefWidth="111.99996948242188" text="Name" />
-            <TableColumn fx:id="colQuantity" prefWidth="67.0" text="Quantity" />
-            <TableColumn fx:id="colWeight" prefWidth="56.0" text="Weight" />
-            <TableColumn fx:id="colUnit" prefWidth="67.0" text="Unit" />
-            <TableColumn fx:id="colHeight" prefWidth="107.50003051757812" text="Height of package" />
-            <TableColumn fx:id="colWidth" prefWidth="109.0" text="Width of package" />
-            <TableColumn fx:id="colSerial" prefWidth="118.0" text="Serial number" />
-            <TableColumn fx:id="colLocation" prefWidth="83.0" text="Location tag" />
-            <TableColumn fx:id="colPurchasePrice" prefWidth="95.0" text="Purchase price" />
-            <TableColumn fx:id="colSellingPrice" prefWidth="92.5" text="Selling price" />
+          <TableColumn fx:id="colName" prefWidth="111.99996948242188" text="%colName" />
+            <TableColumn fx:id="colQuantity" prefWidth="67.0" text="%colQuantity" />
+            <TableColumn fx:id="colWeight" prefWidth="56.0" text="%colWeight" />
+            <TableColumn fx:id="colUnit" prefWidth="67.0" text="%colUnit" />
+            <TableColumn fx:id="colHeight" prefWidth="107.50003051757812" text="%colHeightPackage" />
+            <TableColumn fx:id="colWidth" prefWidth="109.0" text="%colWidthPackage" />
+            <TableColumn fx:id="colSerial" prefWidth="118.0" text="%colSerialNo" />
+            <TableColumn fx:id="colLocation" prefWidth="83.0" text="%colLocationTag" />
+            <TableColumn fx:id="colPurchasePrice" prefWidth="95.0" text="%colPurchasePrice" />
+            <TableColumn fx:id="colSellingPrice" prefWidth="92.5" text="%colSellingPrice" />
         </columns>
       </TableView>
-      <TextField fx:id="fldSearch" layoutX="160.0" layoutY="40.0" prefHeight="32.0" prefWidth="622.0" promptText="Type in the name of a product or sector" />
+      <TextField fx:id="fldSearch" layoutX="160.0" layoutY="40.0" prefHeight="32.0" prefWidth="622.0" promptText="%textSearch" />
       <ButtonBar layoutX="774.0" layoutY="36.0" prefHeight="40.0" prefWidth="334.0">
         <buttons>
-            <Button fx:id="btnNameSearch" layoutX="242.0" layoutY="14.0" mnemonicParsing="false" onAction="#nameSearchAction" prefHeight="32.0" prefWidth="124.0" text="Search name" />
-            <Button fx:id="btnSectorSearch" layoutX="242.0" layoutY="14.0" mnemonicParsing="false" onAction="#sectorSearchAction" prefHeight="32.0" text="Search sector" />
-          <Button fx:id="btnRefresh" contentDisplay="TOP" mnemonicParsing="false" onAction="#refreshAction" prefHeight="32.0" text="Refresh" />
+            <Button fx:id="btnNameSearch" layoutX="242.0" layoutY="14.0" mnemonicParsing="false" onAction="#nameSearchAction" prefHeight="32.0" prefWidth="124.0" text="%btnSearchName" />
+            <Button fx:id="btnSectorSearch" layoutX="242.0" layoutY="14.0" mnemonicParsing="false" onAction="#sectorSearchAction" prefHeight="32.0" text="%btnSearchSector" />
+          <Button fx:id="btnRefresh" contentDisplay="TOP" mnemonicParsing="false" onAction="#refreshAction" prefHeight="32.0" text="%btnRefresh" />
         </buttons>
       </ButtonBar>
       <MenuBar layoutY="3.0" prefHeight="32.0" prefWidth="1116.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="%menuFile">
             <items>
-              <MenuItem fx:id="optSave" mnemonicParsing="false" onAction="#saveTransactionsAction" text="Save transactions" />
-                  <Menu mnemonicParsing="false" text="Language">
+              <MenuItem fx:id="optSave" mnemonicParsing="false" onAction="#saveTransactionsAction" text="%menuSave" />
+                  <Menu mnemonicParsing="false" text="%menuLanguage">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#itmEnglishAction" text="English" />
-                        <MenuItem mnemonicParsing="false" onAction="#itmBosanskiAction" text="Bosanski" />
+                      <MenuItem mnemonicParsing="false" onAction="#itmEnglishAction" text="%menuEnglish" />
+                        <MenuItem mnemonicParsing="false" onAction="#itmBosanskiAction" text="%menuBosanski" />
                     </items>
                   </Menu>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="%menuHelp">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="%menuAbout" />
             </items>
           </Menu>
         </menus>

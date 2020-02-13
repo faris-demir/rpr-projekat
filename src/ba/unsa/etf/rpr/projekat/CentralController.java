@@ -16,6 +16,8 @@ import net.sf.jasperreports.engine.JRException;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Locale;
+import java.util.Optional;
 
 import static ba.unsa.etf.rpr.projekat.ProductDAO.getProductInstance;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -63,14 +65,26 @@ public class CentralController {
         try {
             PrintWriter writer;
             writer = new PrintWriter(file);
-            writer.println(">> LOCAL COPY OF TRANSACTIONS <<");
-            writer.println("--------------------------------");
-            writer.println("");
-            writer.println(">> SALES <<");
-            writer.println("");
+            if (Locale.getDefault().getCountry().equals("en")) {
+                writer.println(">> LOCAL COPY OF TRANSACTIONS <<");
+                writer.println("--------------------------------");
+                writer.println("");
+                writer.println(">> SALES <<");
+                writer.println("");
+            } else {
+                writer.println(">> LOKALNA KOPIJA SVIH TRANSAKCIJA <<");
+                writer.println("-------------------------------------");
+                writer.println("");
+                writer.println(">> PRODAJE <<");
+                writer.println("");
+            }
             transactions.getSales().forEach(writer::println);
             writer.println("");
-            writer.println(">> ORDERS <<");
+            if (Locale.getDefault().getCountry().equals("en")) {
+                writer.println(">> ORDERS <<");
+            } else {
+                writer.println(">> NARUDŽBE <<");
+            }
             writer.println("");
             transactions.getOrders().forEach(writer::println);
             writer.close();
@@ -99,6 +113,8 @@ public class CentralController {
         colLocation.setCellValueFactory(new PropertyValueFactory<>("locationTag"));
         colPurchasePrice.setCellValueFactory(new PropertyValueFactory<>("purchasePrice"));
         colSellingPrice.setCellValueFactory(new PropertyValueFactory<>("sellingPrice"));
+
+
 
         tblProducts.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
             if (tblProducts.getSelectionModel().getSelectedItem() == null) {
@@ -151,8 +167,14 @@ public class CentralController {
         if (fldSearch.getText().equals("")) return;
         if (fldSearch.getText().length() > 1) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Failed search attempt");
-            alert.setContentText("Sector names only contain one letter! \nThey are in the range from A to H inclusive.");
+            if (Locale.getDefault().getCountry().equals("en")) {
+                alert.setHeaderText("Failed search attempt");
+                alert.setContentText("Sector names only contain one capital letter! \nThey are in the range from A to H inclusive.");
+            } else {
+                alert.setHeaderText("Greška u pretrazi");
+                alert.setContentText("Imena sektora se sastoje samo iz jednog velikog slova! \nU opsegu su od slova A do H.");
+            }
+
             alert.showAndWait();
             return;
         }
@@ -177,7 +199,11 @@ public class CentralController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        primaryStage.setTitle("Register new product");
+        if (Locale.getDefault().getCountry().equals("en")) {
+            primaryStage.setTitle("Register new product");
+        } else {primaryStage.setTitle("Dodavanje novog proizvoda");
+
+        }
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductToRegister() != null) {
@@ -202,7 +228,11 @@ public class CentralController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        primaryStage.setTitle("Register new product");
+        if (Locale.getDefault().getCountry().equals("en")) {
+            primaryStage.setTitle("Register new product");
+        } else {primaryStage.setTitle("Dodavanje novog proizvoda");
+
+        }
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductToModify() != null) {
@@ -217,10 +247,17 @@ public class CentralController {
     public void removeAction(ActionEvent actionEvent) {
         if (currentProduct == null) return;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("Deleting selected product");
-        alert.setContentText("This action will delete the product you have selected. Are you sure you would like to proceed?");
-        alert.showAndWait();
-        getProductInstance().deleteProduct(currentProduct);
+        if (Locale.getDefault().getCountry().equals("en")) {
+            alert.setHeaderText("Deleting selected product");
+            alert.setContentText("This action will delete the product you have selected. Are you sure you would like to proceed?");
+        } else {
+            alert.setHeaderText("Brisanje odabranog artikla");
+            alert.setContentText("Ova akcija će obrisati proizvod kojeg ste odabrali. Jeste li sigurni da želite nastaviti?");
+        }
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            getProductInstance().deleteProduct(currentProduct);
+        }
         refreshListContent();
     }
 
@@ -236,7 +273,11 @@ public class CentralController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        primaryStage.setTitle("Sell product");
+        if (Locale.getDefault().getCountry().equals("en")) {
+            primaryStage.setTitle("Sell product");
+        } else {
+            primaryStage.setTitle("Prodaja proizvoda");
+        }
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductForSale() != null) {
@@ -262,7 +303,11 @@ public class CentralController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        primaryStage.setTitle("Order product");
+        if (Locale.getDefault().getCountry().equals("en")) {
+            primaryStage.setTitle("Order product");
+        } else {
+            primaryStage.setTitle("Narudžba proizvoda");
+        }
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setOnHiding(windowEvent -> {
             if (ctrl.getProductToOrder() != null) {
@@ -294,7 +339,11 @@ public class CentralController {
 
     public void saveTransactionsAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Save file");
+        if (Locale.getDefault().getCountry().equals("en")) {
+            fileChooser.setTitle("Save file");
+        } else {
+            fileChooser.setTitle("Spasi fajl");
+        }
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
         File file = fileChooser.showSaveDialog(btnLogout.getScene().getWindow());

@@ -22,26 +22,26 @@
     <children>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <buttons>
-                <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmAction" prefHeight="37.0" prefWidth="160.0" text="Confirm" />
-                <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="39.0" text="Cancle" />
+                <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmAction" prefHeight="37.0" prefWidth="160.0" text="%btnConfirm" />
+                <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelAction" prefHeight="39.0" text="%btnCancel" />
             </buttons>
             <GridPane.margin>
                 <Insets right="20.0" />
             </GridPane.margin>
         </ButtonBar>
-        <Label text="Name:" GridPane.halignment="RIGHT">
+        <Label text="%lblName" GridPane.halignment="RIGHT">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></Label>
-        <Label text="Available quantity:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+        <Label text="%lblAvailableQuantity" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></Label>
-        <Label alignment="CENTER_RIGHT" text="Purchase price:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+        <Label alignment="CENTER_RIGHT" text="%lblPurchasePrice" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></Label>
-        <Label alignment="CENTER_RIGHT" text="Enter quantity to order:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+        <Label alignment="CENTER_RIGHT" text="%lblEnterQuantity" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets right="20.0" />
          </GridPane.margin></Label>
