@@ -54,10 +54,12 @@ public class RegisterController {
     private boolean canThePackageFit(double testWidth, double testHeight, String containerTag) {
         double maxContainerCapacity = containers.stream().
                 filter(container -> container.getTag().equals(containerTag)).
-                mapToDouble(Container::getCapacity).sum();
+                mapToDouble(Container::getCapacity).
+                sum();
         double occupiedSpaceVolume = products.stream().
-                filter(product -> product.getLocationTag().charAt(1) == containerTag).
-                mapToDouble(product -> product.getPackageWidth() * product.getPackageWidth() * product.getPackageHeight()).sum();
+                filter(product -> product.getLocationTag().charAt(1) == containerTag.charAt(0)).
+                mapToDouble(product -> product.getPackageWidth() * product.getPackageWidth() * product.getPackageHeight()).
+                sum();
         return occupiedSpaceVolume + (testWidth * testWidth * testHeight) <= maxContainerCapacity;
     }
 
@@ -181,6 +183,13 @@ public class RegisterController {
         try {
             if (!isSerialNumberLegal(fldSerial.getText())) throw new IllegalSerialNumberException();
         } catch (IllegalSerialNumberException e) {
+            return;
+        }
+        try {
+            double width = Double.parseDouble(fldWidth.getText());
+            double height = Double.parseDouble(fldHeight.getText());
+            if (!canThePackageFit(width, height, spnContainer.getValue().toString())) throw new ExceedingCapacityLimitException();
+        } catch (ExceedingCapacityLimitException e) {
             return;
         }
         if (readyToRegister() || productToModify != null) {
