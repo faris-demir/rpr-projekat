@@ -10,6 +10,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-add_tag.png");
 }
 
 #btnRegister:hover {
@@ -36,6 +37,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-edit_property.png");
 }
 
 #btnModify:hover {
@@ -114,6 +116,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+
 }
 
 #btnRefresh:hover {
@@ -140,6 +143,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-remove_tag.png");
 }
 
 #btnRemove:hover {
@@ -166,6 +170,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-deliver_food.png");
 }
 
 #btnOrder:hover {
@@ -192,6 +197,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-sell_stock.png");
 }
 
 #btnSell:hover {
@@ -218,6 +224,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-show_property.png");
 }
 
 #btnOrderReport:hover {
@@ -244,6 +251,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-show_property.png");
 }
 
 #btnSalesReport:hover {
@@ -270,6 +278,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
+    -fx-graphic: url("/images/icons8-exit.png");
 }
 
 #btnLogout:hover {
@@ -282,4 +291,45 @@
 #btnLogout:pressed {
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#fldSearch{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldSearch:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#menuBar{
+    -fx-opacity: 0.75;
+    -fx-padding: 0 7 7 7;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#menuBar:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#tblProducts{
+    -fx-opacity: 0.75;
+    -fx-padding: 0 7 7 7;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#tblProducts:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
 }
