@@ -1,24 +1,4 @@
-#lbTitleFirst{
-    -fx-background-color: rgba(255, 255, 255, .64);
-}
-
-#lbTitleSecond{
-    -fx-background-color: rgba(255, 255, 255, .64);
-}
-
-#lbDescFirst{
-    -fx-background-color: rgba(255, 255, 255, .64);
-}
-
-#fldUsername{
-    -fx-opacity: 0.85;
-}
-
-#fldPassword{
-    -fx-opacity: 0.85;
-}
-
-#btnLogin{
+#btnRegister{
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
     -fx-background-radius: 8;
@@ -33,26 +13,15 @@
     -fx-background-radius: 10px;
 }
 
-#btnLogin:hover {
+#btnRegister:hover {
     -fx-background-color:
             linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
             #6f797a,
             #ced9db,
             radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
 }
-#btnLogin:pressed {
+#btnRegister:pressed {
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
 
-.notValidField{
-    -fx-control-inner-background: lightpink;
-}
-
-.validField{
-    -fx-control-inner-background: greenyellow;
-}
-
-#imgBackground{
-    -fx-opacity: 0.6;
-}
