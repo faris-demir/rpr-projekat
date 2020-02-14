@@ -35,15 +35,13 @@
             <Image url="@../images/background.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="fldUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-      <PasswordField fx:id="fldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <TextField fx:id="fldUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="%lblUsername" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <PasswordField fx:id="fldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="%lblPassword" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#loginAction" prefHeight="36.0" prefWidth="199.0" text="%btnLogin" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </Button>
-      <Label fx:id="lbUsername" text="%lblUsername" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Label fx:id="lbPassword" text="%lblPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label fx:id="lbTitleSecond" maxHeight="-Infinity" prefHeight="51.0" prefWidth="246.0" text="%lblEasyWMS" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.valignment="TOP">
          <font>
             <Font name="DIN Condensed Bold" size="28.0" />
@@ -71,11 +69,27 @@
             <Insets left="30.0" />
          </GridPane.margin>
          <font>
-            <Font name="Brush Script MT Italic" size="40.0" />
+            <Font name="DIN Condensed Bold" size="40.0" />
          </font>
          <padding>
             <Insets left="10.0" right="10.0" />
          </padding>
       </Label>
+      <ImageView fitHeight="33.0" fitWidth="35.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+         <image>
+            <Image url="@../images/icons8-user.png" />
+         </image>
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+         <image>
+            <Image url="@../images/icons8-key.png" />
+         </image>
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+      </ImageView>
    </children>
 </GridPane>

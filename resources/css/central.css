@@ -10,7 +10,6 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
     -fx-font-size: 1.1em;
-    -fx-background-radius: 10px;
 }
 
 #btnRegister:hover {
@@ -25,3 +24,262 @@
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
 
+#btnModify{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnModify:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnModify:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnSectorSearch{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnSectorSearch:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnSectorSearch:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnNameSearch{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnNameSearch:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnNameSearch:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnRefresh{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnRefresh:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnRefresh:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnRemove{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnRemove:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnRemove:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnOrder{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnOrder:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnOrder:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnSell{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnSell:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnSell:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnOrderReport{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnOrderReport:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnOrderReport:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnSalesReport{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnSalesReport:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnSalesReport:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#btnLogout{
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #ced5d6 100%),
+            #ced5d6,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #d5dadb, #8c9ea1);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#btnLogout:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #ced9db 0%, #6f797a 100%),
+            #6f797a,
+            #ced9db,
+            radial-gradient(center 50% 50%, radius 100%, #8c9ea1, #6f797a);
+}
+#btnLogout:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
