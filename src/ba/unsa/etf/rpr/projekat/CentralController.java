@@ -219,7 +219,11 @@ public class CentralController {
     }
 
     public void modifyAction(ActionEvent actionEvent) {
-        if (currentProduct == null) return;
+        if (currentProduct == null) try {
+            throw new ProductNotSelectedException();
+        } catch (ProductNotSelectedException e) {
+            return;
+        }
         RegisterController ctrl = new RegisterController(currentProduct, products, model.getSectors());
         Stage primaryStage = new Stage();
         ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
@@ -248,7 +252,11 @@ public class CentralController {
     }
 
     public void removeAction(ActionEvent actionEvent) {
-        if (currentProduct == null) return;
+        if (currentProduct == null) try {
+            throw new ProductNotSelectedException();
+        } catch (ProductNotSelectedException e) {
+            return;
+        }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         if (Locale.getDefault().getCountry().equals("en")) {
             alert.setHeaderText("Deleting selected product");
@@ -265,7 +273,11 @@ public class CentralController {
     }
 
     public void sellAction(ActionEvent actionEvent) {
-        if (currentProduct == null) return;
+        if (currentProduct == null) try {
+            throw new ProductNotSelectedException();
+        } catch (ProductNotSelectedException e) {
+            return;
+        }
         SellController ctrl = new SellController(currentProduct);
         Stage primaryStage = new Stage();
         ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
@@ -296,7 +308,11 @@ public class CentralController {
     }
 
     public void orderAction(ActionEvent actionEvent) {
-        if (currentProduct == null) return;
+        if (currentProduct == null) try {
+            throw new ProductNotSelectedException();
+        } catch (ProductNotSelectedException e) {
+            return;
+        }
         OrderController ctrl = new OrderController(currentProduct);
         Stage primaryStage = new Stage();
         ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
