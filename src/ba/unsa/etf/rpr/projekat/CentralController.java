@@ -426,9 +426,18 @@ public class CentralController {
     public void aboutAction(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if (Locale.getDefault().getCountry().equals("US")) {
-            alert.setContentText("EasyWMS is a software solution for managing a warehouse. ");
+            alert.setTitle("About");
+            alert.setHeaderText("Basic information about the software");
+            alert.setContentText("EasyWMS is a software solution for managing a warehouse. \nIt allows one manager to add, modify, remove, order, sell, search products " +
+                                "and generate reports for the sales and orders he made.\n \nEasyWMS was created from scratch by Faris Demir, a student at the Faculty of Electrical Engineering " +
+                                "in Sarajevo as a project. \n\nThe current version of the program is 1.0 \n \nAll rights reserved");
         } else {
-
+            alert.setTitle("Informacije");
+            alert.setHeaderText("Osnovne informacije o aplikaciji");
+            alert.setContentText("EasyWMS je softversko rješenje za upravljanje skladištem. \nOmogućava upravitelju/ici da dodaje, mijenja, uklanja, naručuje, prodaje, pretražuje artikle " +
+                    "i da generiše o prodajama i narudžbama koje je on/ona izvršio/la.\n \nEasyWMS je napisan od nule od strane Farisa Demira, studenta Elektrotehničkog fakulteta u Sarajevu " +
+                    "kao projekat. \n\nTrenutna verzija programa je 1.0 \n \nSva prava zadržana");
         }
+        alert.showAndWait();
     }
 }
