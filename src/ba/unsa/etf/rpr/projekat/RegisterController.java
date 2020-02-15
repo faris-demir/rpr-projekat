@@ -180,16 +180,17 @@ public class RegisterController {
     }
 
     public void confirmAction(ActionEvent actionEvent) {
+
         try {
             if (!isSerialNumberLegal(fldSerial.getText())) throw new IllegalSerialNumberException();
-        } catch (IllegalSerialNumberException e) {
+        } catch (Exception e) {
             return;
         }
         try {
             double width = Double.parseDouble(fldWidth.getText());
             double height = Double.parseDouble(fldHeight.getText());
             if (!canThePackageFit(width, height, spnContainer.getValue().toString())) throw new ExceedingCapacityLimitException();
-        } catch (ExceedingCapacityLimitException e) {
+        } catch (Exception e) {
             return;
         }
         if (readyToRegister() || productToModify != null) {
