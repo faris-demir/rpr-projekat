@@ -60,7 +60,7 @@ public class OrderController {
             newOrder.setOrderedQuantity(Integer.parseInt(fldOrderQuantity.getText()));
             newOrder.setPrice(productToOrder.getPurchasePrice());
             newOrder.setOrderDate(LocalDateTime.now());
-            newOrder.setTotalPrice(newOrder.getPrice() * newOrder.getOrderedQuantity());
+            newOrder.setTotalPrice(Math.round(newOrder.getPrice() * newOrder.getOrderedQuantity() * 100)/100.);
             productToOrder.setQuantity(productToOrder.getQuantity() + Integer.parseInt(fldOrderQuantity.getText()));
             Stage currentStage = (Stage) fldName.getScene().getWindow();
             currentStage.close();

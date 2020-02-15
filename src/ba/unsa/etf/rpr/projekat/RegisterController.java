@@ -50,6 +50,15 @@ public class RegisterController {
         return products.stream().noneMatch(product -> product.getSerialNumber().equals(testSerial));
     }
 
+    private boolean isItANumber(String text) {
+        try {
+            Double number = Double.parseDouble(text);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     //todo ovdje mozda mozes neku lambdu napisat ili nesto tako
     private boolean canThePackageFit(double testWidth, double testHeight, String containerTag) {
         double maxContainerCapacity = containers.stream().
@@ -103,7 +112,11 @@ public class RegisterController {
         }));
 
         fldQuantity.textProperty().addListener(((obs, oldVal, newVal) -> {
-            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+            if (!isItANumber(newVal)) {
+                fldQuantity.getStyleClass().removeAll("validField");
+                fldQuantity.getStyleClass().add("notValidField");
+            }
+            else if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
                 fldQuantity.getStyleClass().removeAll("notValidField");
                 fldQuantity.getStyleClass().add("validField");
             } else {
@@ -113,7 +126,11 @@ public class RegisterController {
         }));
 
         fldWeight.textProperty().addListener(((obs, oldVal, newVal) -> {
-            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+            if (!isItANumber(newVal)) {
+                fldWeight.getStyleClass().removeAll("validField");
+                fldWeight.getStyleClass().add("notValidField");
+            }
+            else if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
                 fldWeight.getStyleClass().removeAll("notValidField");
                 fldWeight.getStyleClass().add("validField");
             } else {
@@ -123,7 +140,11 @@ public class RegisterController {
         }));
 
         fldHeight.textProperty().addListener(((obs, oldVal, newVal) -> {
-            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+            if (!isItANumber(newVal)) {
+                fldHeight.getStyleClass().removeAll("validField");
+                fldHeight.getStyleClass().add("notValidField");
+            }
+            else if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
                 fldHeight.getStyleClass().removeAll("notValidField");
                 fldHeight.getStyleClass().add("validField");
             } else {
@@ -133,7 +154,11 @@ public class RegisterController {
         }));
 
         fldWidth.textProperty().addListener(((obs, oldVal, newVal) -> {
-            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+            if (!isItANumber(newVal)) {
+                fldWidth.getStyleClass().removeAll("validField");
+                fldWidth.getStyleClass().add("notValidField");
+            }
+            else if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
                 fldWidth.getStyleClass().removeAll("notValidField");
                 fldWidth.getStyleClass().add("validField");
             } else {
@@ -153,7 +178,11 @@ public class RegisterController {
         }));
 
         fldPurchasePrice.textProperty().addListener(((obs, oldVal, newVal) -> {
-            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+            if (!isItANumber(newVal)) {
+                fldPurchasePrice.getStyleClass().removeAll("validField");
+                fldPurchasePrice.getStyleClass().add("notValidField");
+            }
+            else if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
                 fldPurchasePrice.getStyleClass().removeAll("notValidField");
                 fldPurchasePrice.getStyleClass().add("validField");
             } else {
@@ -163,7 +192,11 @@ public class RegisterController {
         }));
 
         fldSellingPrice.textProperty().addListener(((obs, oldVal, newVal) -> {
-            if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
+            if (!isItANumber(newVal)) {
+                fldSellingPrice.getStyleClass().removeAll("validField");
+                fldSellingPrice.getStyleClass().add("notValidField");
+            }
+            else if (!newVal.isEmpty() || Integer.parseInt(newVal) > 0) {
                 fldSellingPrice.getStyleClass().removeAll("notValidField");
                 fldSellingPrice.getStyleClass().add("validField");
             } else {
