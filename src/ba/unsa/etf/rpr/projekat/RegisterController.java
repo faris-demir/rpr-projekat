@@ -217,6 +217,8 @@ public class RegisterController {
         try {
             if (!isSerialNumberLegal(fldSerial.getText())) throw new IllegalSerialNumberException();
         } catch (Exception e) {
+            fldSerial.getStyleClass().removeAll("validField");
+            fldSerial.getStyleClass().add("notValidField");
             return;
         }
         try {
@@ -224,6 +226,10 @@ public class RegisterController {
             double height = Double.parseDouble(fldHeight.getText());
             if (!canThePackageFit(width, height, spnContainer.getValue().toString())) throw new ExceedingCapacityLimitException();
         } catch (Exception e) {
+            fldWidth.getStyleClass().removeAll("validField");
+            fldWidth.getStyleClass().add("notValidField");
+            fldHeight.getStyleClass().removeAll("validField");
+            fldHeight.getStyleClass().add("notValidField");
             return;
         }
         if (readyToRegister() || productToModify != null) {

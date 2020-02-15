@@ -7,7 +7,7 @@ import java.util.Locale;
 public class IllegalSerialNumberException extends Exception {
     public IllegalSerialNumberException() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        if (Locale.getDefault().getCountry().equals("en")) {
+        if (Locale.getDefault().getCountry().equals("US")) {
             alert.setTitle("Error");
             alert.setHeaderText("Illegal serial number");
             alert.setContentText("You have entered a serial number that already exists! Please try another one.");

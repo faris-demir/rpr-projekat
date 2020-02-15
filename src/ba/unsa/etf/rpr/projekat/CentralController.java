@@ -203,8 +203,8 @@ public class CentralController {
         }
         if (Locale.getDefault().getCountry().equals("en")) {
             primaryStage.setTitle("Register new product");
-        } else {primaryStage.setTitle("Dodavanje novog proizvoda");
-
+        } else {
+            primaryStage.setTitle("Dodavanje novog proizvoda");
         }
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setOnHiding(windowEvent -> {
@@ -258,7 +258,7 @@ public class CentralController {
             return;
         }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        if (Locale.getDefault().getCountry().equals("en")) {
+        if (Locale.getDefault().getCountry().equals("US")) {
             alert.setHeaderText("Deleting selected product");
             alert.setContentText("This action will delete the product you have selected. Are you sure you would like to proceed?");
         } else {
@@ -344,6 +344,20 @@ public class CentralController {
 
     public void salesReportAction(ActionEvent actionEvent) {
         try {
+            if (model.getSalesDB().size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                if (Locale.getDefault().getCountry().equals("US")) {
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("No sales made");
+                    alert.setContentText("You haven't made any sales yet for the report to show!");
+                } else {
+                    alert.setTitle("Upozorenje");
+                    alert.setHeaderText("Nema izvršenih prodaja");
+                    alert.setContentText("Niste izvršili nijednu prodaju koju bi izvještaj mogao prikazati!");
+                }
+                alert.showAndWait();
+                return;
+            }
             new SalesReport().showReport(WarehouseModel.getConnection());
         } catch (JRException e1) {
             e1.printStackTrace();
@@ -352,6 +366,20 @@ public class CentralController {
 
     public void orderReportAction(ActionEvent actionEvent) {
         try {
+            if (model.getOrdersDB().size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                if (Locale.getDefault().getCountry().equals("US")) {
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("No orders made");
+                    alert.setContentText("You haven't made any orders yet for the report to show!");
+                } else {
+                    alert.setTitle("Upozorenje");
+                    alert.setHeaderText("Nema izvršenih narudžbi");
+                    alert.setContentText("Niste izvršili nijednu narudžbu koju bi izvještaj mogao prikazati!");
+                }
+                alert.showAndWait();
+                return;
+            }
             new OrdersReport().showReport(WarehouseModel.getConnection());
         } catch (JRException e1) {
             e1.printStackTrace();
