@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.projekat;
 
+import animatefx.animation.Pulse;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,9 +15,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../../../../../../resources/fxml/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        LoginController ctrl = new LoginController();
+
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), resourceBundle);
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        primaryStage.setTitle("EasyWMS");
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        new Pulse(root).play();
         primaryStage.show();
         primaryStage.setResizable(false);
     }

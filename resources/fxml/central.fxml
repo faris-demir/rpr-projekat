@@ -70,7 +70,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="%menuHelp">
             <items>
-              <MenuItem mnemonicParsing="false" text="%menuAbout" />
+              <MenuItem fx:id="itmAbout" mnemonicParsing="false" onAction="#aboutAction" text="%menuAbout" />
             </items>
           </Menu>
         </menus>

@@ -422,4 +422,13 @@ public class CentralController {
         Locale.setDefault(new Locale("bs"));
         refreshLanguageGlobally();
     }
+
+    public void aboutAction(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (Locale.getDefault().getCountry().equals("US")) {
+            alert.setContentText("EasyWMS is a software solution for managing a warehouse. ");
+        } else {
+
+        }
+    }
 }
