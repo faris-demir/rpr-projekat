@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
@@ -20,6 +22,11 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
+      <ImageView fitHeight="347.0" fitWidth="460.0" opacity="0.2" pickOnBounds="true" GridPane.valignment="TOP">
+         <image>
+            <Image url="@../images/background.jpg" />
+         </image>
+      </ImageView>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
             <buttons>
                 <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmAction" prefHeight="37.0" prefWidth="160.0" text="%btnConfirm" />

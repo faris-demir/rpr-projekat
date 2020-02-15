@@ -57,3 +57,155 @@
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
+
+#fldName{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldName:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#fldQuantity{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldQuantity:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#fldWeight{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldWeight:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#cbUnit{
+    -fx-opacity: 0.75;
+    -fx-padding: 2 9 9 9;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#cbUnit:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#fldHeight{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldHeight:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#fldWidth{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldWidth:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#fldSerial{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldSerial:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#fldPurchasePrice{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldPurchasePrice:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#fldSellingPrice{
+    -fx-opacity: 0.75;
+    -fx-padding: 6 13 13 13;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#fldSellingPrice:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#spnSector{
+    -fx-opacity: 0.75;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-padding: 2 2 6 2;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#spnSector:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
+
+#spnContainer{
+    -fx-opacity: 0.75;
+    -fx-background-insets: 0,0 0 4 0, 0 0 5 0, 0 0 6 0;
+    -fx-padding: 2 2 6 2;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+#spnContainer:focused {
+    -fx-background-color: #8c9ea1, -fx-background;
+}
