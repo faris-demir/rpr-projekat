@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.projekat;
 
-import animatefx.animation.SlideInUp;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,7 +78,7 @@ public class LoginController {
             loadingTask.setOnSucceeded(workerStateEvent -> {
                 primaryStage.setTitle("EasyWMS");
                 primaryStage.setScene(new Scene(root[0], USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-                new SlideInUp(root[0]).play();
+                //new SlideInUp(root[0]).play();
                 primaryStage.show();
                 primaryStage.setResizable(false);
             });

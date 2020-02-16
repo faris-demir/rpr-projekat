@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.projekat;
 
-import animatefx.animation.Pulse;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,7 +22,7 @@ public class Main extends Application {
         Parent root = loader.load();
         primaryStage.setTitle("EasyWMS");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        new Pulse(root).play();
+        //new Pulse(root).play();
         primaryStage.show();
         primaryStage.setResizable(false);
     }
