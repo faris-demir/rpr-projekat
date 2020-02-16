@@ -37,7 +37,7 @@
       </ImageView>
       <TextField fx:id="fldUsername" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="%lblUsername" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <PasswordField fx:id="fldPassword" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="%lblPassword" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Button fx:id="btnLogin" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#loginAction" prefHeight="36.0" prefWidth="199.0" text="%btnLogin" GridPane.columnIndex="2" GridPane.rowIndex="3">
+      <Button fx:id="btnLogin" contentDisplay="RIGHT" defaultButton="true" mnemonicParsing="false" onAction="#loginAction" prefHeight="36.0" prefWidth="199.0" text="%btnLogin" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
