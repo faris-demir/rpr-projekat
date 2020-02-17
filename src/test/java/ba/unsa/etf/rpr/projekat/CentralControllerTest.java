@@ -26,7 +26,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CentralControllerTest {
     @Start
     public void start(Stage stage) throws Exception {
-        File file = new File("temp.txt");
         File dbfile = new File("warehouse.db");
         dbfile.delete();
         WarehouseModel model = new WarehouseModel();
