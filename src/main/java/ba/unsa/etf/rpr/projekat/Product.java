@@ -13,6 +13,22 @@ public class Product {
     private double sellingPrice;
     private int id;
 
+    public Product(String name, int quantity, double weight, Unit unit, double packageHeight,
+                   double packageWidth, String serialNumber, String locationTag,
+                   double purchasePrice, double sellingPrice, int id) {
+        this.name = name;
+        this.quantity = quantity;
+        this.weight = weight;
+        this.unit = unit;
+        this.packageHeight = packageHeight;
+        this.packageWidth = packageWidth;
+        this.serialNumber = serialNumber;
+        this.locationTag = locationTag;
+        this.purchasePrice = purchasePrice;
+        this.sellingPrice = sellingPrice;
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
