@@ -8,6 +8,9 @@ public class Sector {
     private int id;
     private int capacity;
 
+    public Sector() {
+    }
+
     public Sector(int id, String tag, int capacity) {
         this.tag = tag;
         this.id = id;
