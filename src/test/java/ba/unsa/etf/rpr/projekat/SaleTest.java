@@ -11,10 +11,10 @@ public class SaleTest {
     @Test
     void constructorAndGetters() {
         LocalDateTime dateTime = LocalDateTime.now();
-        Sale sale = new Sale(3, "chips", 10, dateTime, 2.45, 24.5);
+        Sale sale = new Sale(3, "milk", 10, dateTime, 2.45, 24.5);
 
         assertEquals(3, sale.getId());
-        assertEquals("chips", sale.getProductName());
+        assertEquals("milk", sale.getProductName());
         assertEquals(10, sale.getSoldQuantity());
         assertEquals(dateTime, sale.getSaleDate());
         assertEquals(2.45, sale.getPrice());

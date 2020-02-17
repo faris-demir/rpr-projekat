@@ -6,6 +6,14 @@ public class Transactions {
     private ArrayList<Sale> sales = new ArrayList<>();
     private ArrayList<Order> orders = new ArrayList<>();
 
+    public Transactions() {
+    }
+
+    public Transactions(ArrayList<Sale> sales, ArrayList<Order> orders) {
+        this.sales = sales;
+        this.orders = orders;
+    }
+
     public ArrayList<Sale> getSales() {
         return sales;
     }
