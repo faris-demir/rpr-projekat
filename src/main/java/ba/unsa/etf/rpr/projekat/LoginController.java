@@ -67,7 +67,7 @@ public class LoginController {
                         e.printStackTrace();
                     }
                     try {
-                        Thread.sleep(3000);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -78,7 +78,6 @@ public class LoginController {
             loadingTask.setOnSucceeded(workerStateEvent -> {
                 primaryStage.setTitle("EasyWMS");
                 primaryStage.setScene(new Scene(root[0], USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-                //new SlideInUp(root[0]).play();
                 primaryStage.show();
                 primaryStage.setResizable(false);
             });

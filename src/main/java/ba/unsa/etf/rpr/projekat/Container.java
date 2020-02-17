@@ -8,6 +8,9 @@ public class Container {
     private int id;
     private double capacity;
 
+    public Container() {
+    }
+
     public Container(int id, String tag, double capacity) {
         this.tag = tag;
         this.id = id;

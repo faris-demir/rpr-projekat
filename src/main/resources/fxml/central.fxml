@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1270.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1291.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/central.css" />
     </stylesheets>
    <children>
-      <ImageView fitHeight="755.0" fitWidth="1270.0" layoutX="-1.0" layoutY="32.0" opacity="0.35" pickOnBounds="true">
+      <ImageView fitHeight="755.0" fitWidth="1291.0" layoutX="-1.0" layoutY="32.0" opacity="0.35" pickOnBounds="true">
          <image>
             <Image url="@../images/background.jpg" />
          </image>
       </ImageView>
-      <VBox layoutY="38.0" prefHeight="747.0" prefWidth="148.0">
+      <VBox layoutY="38.0" prefHeight="747.0" prefWidth="153.0">
          <children>
             <Button fx:id="btnRegister" contentDisplay="TOP" mnemonicParsing="false" onAction="#registerAction" prefHeight="83.0" prefWidth="153.0" text="%btnRegisterProduct" />
             <Button fx:id="btnModify" contentDisplay="TOP" mnemonicParsing="false" onAction="#modifyAction" prefHeight="83.0" prefWidth="159.0" text="%btnModifyProduct" />
@@ -26,10 +26,10 @@
             <Button fx:id="btnOrder" contentDisplay="TOP" mnemonicParsing="false" onAction="#orderAction" prefHeight="83.0" prefWidth="151.0" text="%btnOrder" />
             <Button fx:id="btnSalesReport" contentDisplay="TOP" mnemonicParsing="false" onAction="#salesReportAction" prefHeight="83.0" prefWidth="159.0" text="%btnSaleReport" />
             <Button fx:id="btnOrderReport" contentDisplay="TOP" mnemonicParsing="false" onAction="#orderReportAction" prefHeight="83.0" prefWidth="155.0" text="%btnOrderReport" />
-            <Button fx:id="btnLogout" contentDisplay="TOP" mnemonicParsing="false" onAction="#logoutAction" prefHeight="95.0" prefWidth="148.0" text="%btnLogOut" />
+            <Button fx:id="btnLogout" contentDisplay="TOP" mnemonicParsing="false" onAction="#logoutAction" prefHeight="95.0" prefWidth="160.0" text="%btnLogOut" />
          </children>
       </VBox>
-      <TableView fx:id="tblProducts" layoutX="178.0" layoutY="111.0" prefHeight="653.0" prefWidth="1062.0">
+      <TableView fx:id="tblProducts" layoutX="183.0" layoutY="111.0" prefHeight="653.0" prefWidth="1076.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="35.999969482421875" text="ID" />
           <TableColumn fx:id="colName" prefWidth="111.99996948242188" text="%colName" />
@@ -39,23 +39,23 @@
             <TableColumn fx:id="colHeight" prefWidth="125.0" text="%colHeightPackage" />
             <TableColumn fx:id="colWidth" prefWidth="115.0" text="%colWidthPackage" />
             <TableColumn fx:id="colSerial" prefWidth="108.0" text="%colSerialNo" />
-            <TableColumn fx:id="colLocation" prefWidth="97.0" text="%colLocationTag" />
-            <TableColumn fx:id="colPurchasePrice" prefWidth="113.0" text="%colPurchasePrice" />
-            <TableColumn fx:id="colSellingPrice" prefWidth="96.0" text="%colSellingPrice" />
+            <TableColumn fx:id="colLocation" prefWidth="112.0" text="%colLocationTag" />
+            <TableColumn fx:id="colPurchasePrice" prefWidth="114.0" text="%colPurchasePrice" />
+            <TableColumn fx:id="colSellingPrice" prefWidth="101.0" text="%colSellingPrice" />
         </columns>
       </TableView>
-      <TextField fx:id="fldSearch" layoutX="178.0" layoutY="51.0" prefHeight="47.0" prefWidth="599.0" promptText="%textSearch">
+      <TextField fx:id="fldSearch" layoutX="183.0" layoutY="51.0" prefHeight="47.0" prefWidth="611.0" promptText="%textSearch">
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <ButtonBar layoutX="774.0" layoutY="51.0" prefHeight="40.0" prefWidth="464.0">
+      <ButtonBar layoutX="794.0" layoutY="51.0" prefHeight="40.0" prefWidth="464.0">
         <buttons>
             <Button fx:id="btnNameSearch" contentDisplay="RIGHT" layoutX="242.0" layoutY="14.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nameSearchAction" prefHeight="51.0" prefWidth="130.0" text="%btnSearchName" />
             <Button fx:id="btnSectorSearch" contentDisplay="RIGHT" layoutX="242.0" layoutY="14.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sectorSearchAction" prefHeight="49.0" prefWidth="130.0" text="%btnSearchSector" />
           <Button fx:id="btnRefresh" contentDisplay="RIGHT" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refreshAction" prefHeight="44.0" prefWidth="150.0" text="%btnRefresh" />
         </buttons>
       </ButtonBar>
-      <MenuBar fx:id="menuBar" prefHeight="32.0" prefWidth="1275.0">
+      <MenuBar fx:id="menuBar" prefHeight="32.0" prefWidth="1291.0">
         <menus>
           <Menu mnemonicParsing="false" text="%menuFile">
             <items>
