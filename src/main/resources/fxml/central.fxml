@@ -57,18 +57,18 @@
       </ButtonBar>
       <MenuBar fx:id="menuBar" prefHeight="32.0" prefWidth="1291.0">
         <menus>
-          <Menu mnemonicParsing="false" text="%menuFile">
+          <Menu fx:id="menuFile" mnemonicParsing="false" text="%menuFile">
             <items>
               <MenuItem fx:id="optSave" mnemonicParsing="false" onAction="#saveTransactionsAction" text="%menuSave" />
-                  <Menu mnemonicParsing="false" text="%menuLanguage">
+                  <Menu fx:id="menuLanguage" mnemonicParsing="false" text="%menuLanguage">
                     <items>
-                      <MenuItem mnemonicParsing="false" onAction="#itmEnglishAction" text="%menuEnglish" />
-                        <MenuItem mnemonicParsing="false" onAction="#itmBosanskiAction" text="%menuBosanski" />
+                      <MenuItem fx:id="menuEnglish" mnemonicParsing="false" onAction="#itmEnglishAction" text="%menuEnglish" />
+                        <MenuItem fx:id="menuBosanski" mnemonicParsing="false" onAction="#itmBosanskiAction" text="%menuBosanski" />
                     </items>
                   </Menu>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="%menuHelp">
+          <Menu fx:id="menuHelp" mnemonicParsing="false" text="%menuHelp">
             <items>
               <MenuItem fx:id="itmAbout" mnemonicParsing="false" onAction="#aboutAction" text="%menuAbout" />
             </items>
