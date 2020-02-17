@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TableView;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,6 +17,7 @@ import org.testfx.framework.junit5.Start;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -24,11 +26,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(ApplicationExtension.class)
 public class CentralControllerTest {
+    private WarehouseModel model;
+
     @Start
     public void start(Stage stage) throws Exception {
         File dbfile = new File("warehouse.db");
         dbfile.delete();
-        WarehouseModel model = new WarehouseModel();
+        model = new WarehouseModel();
         model.loadData();
 
         CentralController ctrl = new CentralController(model);
@@ -104,6 +108,77 @@ public class CentralControllerTest {
         assertEquals("Product not selected", dialogPane.getHeaderText());
         Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
         robot.clickOn(okButton);
+    }
+
+    @Test
+    void sellProduct(FxRobot robot) {
+        robot.clickOn("Milk");
+        robot.clickOn("#btnSell");
+
+        robot.clickOn("#btnConfirm");
+        robot.clickOn("Milk");
+
+        assertEquals(9, model.getProductsDB().get(0).getQuantity());
+    }
+
+    @Test
+    void removeProduct(FxRobot robot) {
+        robot.clickOn("Milk");
+        robot.clickOn("#btnRemove");
+        robot.lookup(".dialog-pane").tryQuery().isPresent();
+
+        DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
+        assertEquals("Deleting selected product", dialogPane.getHeaderText());
+        Button okButton = (Button) dialogPane.lookupButton(ButtonType.OK);
+        robot.clickOn(okButton);
+
+        TableView productList = robot.lookup("#tblProducts").queryAs(TableView.class);
+        assertEquals(4, productList.getItems().size());
+    }
+
+    @Test
+    void orderProduct(FxRobot robot) {
+        robot.clickOn("Milk");
+        robot.clickOn("#btnOrder");
+
+        robot.clickOn("#fldOrderQuantity").write("100");
+        robot.clickOn("#btnConfirm");
+        robot.clickOn("Milk");
+
+        assertEquals(110 , model.getProductsDB().get(0).getQuantity());
+    }
+
+    @Test
+    void logOut(FxRobot robot) {
+        robot.clickOn("#btnLogout");
+        Button btnLogin = robot.lookup("#btnLogin").queryButton();
+
+        if (Locale.getDefault().getCountry().equals("US")) {
+            assertEquals("Login", btnLogin.getText());
+        } else {
+            assertEquals("Uloguj se", btnLogin.getText());
+        }
+    }
+
+
+    @Test
+    void allSearches(FxRobot robot) {
+        robot.clickOn("#fldSearch").write("Milk");
+        robot.clickOn("#btnNameSearch");
+        TableView productList = robot.lookup("#tblProducts").queryAs(TableView.class);
+        assertEquals(1, productList.getItems().size());
+
+        robot.clickOn("#btnRefresh");
+        productList = robot.lookup("#tblProducts").queryAs(TableView.class);
+        assertEquals(5, productList.getItems().size());
+
+        KeyCode ctrl = KeyCode.CONTROL;
+        if (System.getProperty("os.name").contains("Mac")) ctrl = KeyCode.COMMAND;
+        robot.clickOn("#fldSearch");
+        robot.press(ctrl).press(KeyCode.A).release(KeyCode.A).release(ctrl).write("A");
+        robot.clickOn("#btnSectorSearch");
+        productList = robot.lookup("#tblProducts").queryAs(TableView.class);
+        assertEquals(4, productList.getItems().size());
     }
 
 }
