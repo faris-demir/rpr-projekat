@@ -77,7 +77,7 @@ public class Sale extends Transactions {
             return "Product name: " + getProductName() + ", sold quantity: " + getSoldQuantity() + ", sale date: " + getSaleDate() +
                     ", price of product: " + getPrice() + ", total amount sold: " + getTotalPrice();
         }
-        return "Naziv artikla: " + getProductName() + ", prodana količina: " + getSoldQuantity() + ", datum prodaje: " + getSaleDate() +
+        return "Naziv artikla: " + getProductName() + ", prodana količina: " + getSoldQuantity() + ", datum i vrijeme prodaje: " + getSaleDate() +
                 ", cijena artikla: " + getPrice() + ", ukupna cijena: " + getTotalPrice();
     }
 }
