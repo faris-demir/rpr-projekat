@@ -57,7 +57,7 @@ public class RegisterControllerTest {
         robot.clickOn("#fldSellingPrice").write("3000");
 
         robot.clickOn("#fldSerial").write("1234ABC1");
-        robot.clickOn("#btnRegister");
+        robot.clickOn("#btnConfirm");
         robot.lookup(".dialog-pane").tryQuery().isPresent();
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);
@@ -70,7 +70,7 @@ public class RegisterControllerTest {
     void exceedsCapacityException(FxRobot robot) {
         robot.clickOn("#fldHeight").write("5000");
         robot.clickOn("#fldWidth").write("2000");
-        robot.clickOn("#btnRegister");
+        robot.clickOn("#btnConfirm");
         robot.lookup(".dialog-pane").tryQuery().isPresent();
 
         DialogPane dialogPane = robot.lookup(".dialog-pane").queryAs(DialogPane.class);

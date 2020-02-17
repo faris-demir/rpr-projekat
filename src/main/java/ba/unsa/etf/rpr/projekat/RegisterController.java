@@ -28,6 +28,8 @@ public class RegisterController {
     private Product productToModify = null;
     private ObservableList<Product> products = FXCollections.observableArrayList();
     private ObservableList<Container> containers = FXCollections.observableArrayList();
+    private Boolean serialChange = false;
+    private String originalSerialNumber = "";
 
     public Product getProductToRegister() {
         return productToRegister;
@@ -99,6 +101,7 @@ public class RegisterController {
             spnContainer.getValueFactory().setValue(productToModify.getLocationTag().charAt(1) - '0');
             fldPurchasePrice.setText(String.valueOf(productToModify.getPurchasePrice()));
             fldSellingPrice.setText(String.valueOf(productToModify.getSellingPrice()));
+            originalSerialNumber = productToModify.getSerialNumber();
         }
 
         fldName.textProperty().addListener(((obs, oldVal, newVal) -> {
@@ -168,6 +171,7 @@ public class RegisterController {
         }));
 
         fldSerial.textProperty().addListener(((obs, oldVal, newVal) -> {
+            serialChange = !originalSerialNumber.equals(newVal);
             if (!newVal.isEmpty()) {
                 fldSerial.getStyleClass().removeAll("notValidField");
                 fldSerial.getStyleClass().add("validField");
@@ -215,7 +219,7 @@ public class RegisterController {
     public void confirmAction(ActionEvent actionEvent) {
 
         try {
-            if (!isSerialNumberLegal(fldSerial.getText())) throw new IllegalSerialNumberException();
+            if (!isSerialNumberLegal(fldSerial.getText()) && serialChange) throw new IllegalSerialNumberException();
         } catch (Exception e) {
             fldSerial.getStyleClass().removeAll("validField");
             fldSerial.getStyleClass().add("notValidField");

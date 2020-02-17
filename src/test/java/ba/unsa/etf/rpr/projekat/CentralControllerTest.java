@@ -86,19 +86,6 @@ public class CentralControllerTest {
         assertEquals("Search name", btnSearch.getText());
     }
 
-
-//    @Test
-//    void saveFile(FxRobot robot) {
-//        assertDoesNotThrow(() -> {
-//            robot.clickOn("#menuFile").clickOn("#optSave");
-//            robot.lookup(".dialog-pane").tryQuery().isPresent();
-//
-//            FileChooser fileChooser = robot.lookup(".file-chooser").queryAs(FileChooser.class);
-//            Button saveButton = (Button) dialogPane.lookupButton(ButtonType.APPLY);
-//            robot.clickOn(saveButton);
-//        });
-//    }
-
     @Test
     void notSelectedException(FxRobot robot) {
         robot.clickOn("#btnRemove");
@@ -179,6 +166,19 @@ public class CentralControllerTest {
         robot.clickOn("#btnSectorSearch");
         productList = robot.lookup("#tblProducts").queryAs(TableView.class);
         assertEquals(4, productList.getItems().size());
+    }
+
+    @Test
+    void modifyProduct(FxRobot robot) {
+        robot.clickOn("Milk");
+        robot.clickOn("#btnModify");
+
+        KeyCode ctrl = KeyCode.CONTROL;
+        if (System.getProperty("os.name").contains("Mac")) ctrl = KeyCode.COMMAND;
+        robot.clickOn("#fldName");
+        robot.press(ctrl).press(KeyCode.A).release(KeyCode.A).release(ctrl).write("MLIJEKO");
+        robot.clickOn("#btnConfirm");
+        assertEquals("MLIJEKO", model.getProductsDB().get(0).getName());
     }
 
 }

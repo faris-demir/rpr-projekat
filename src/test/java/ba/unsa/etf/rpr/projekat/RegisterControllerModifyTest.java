@@ -51,7 +51,7 @@ public class RegisterControllerModifyTest {
     @Test
     void modifyProduct(FxRobot robot) {
         robot.clickOn("#fldName").write(" 15 inch");
-        robot.clickOn("#btnRegister");
+        robot.clickOn("#btnConfirm");
 
         Product changedProduct = ctrl.getProductToModify();
         assertEquals("MacBook Pro 15 inch", changedProduct.getName());
