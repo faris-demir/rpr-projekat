@@ -73,7 +73,7 @@ public class Sale extends Transactions {
 
     @Override
     public String toString() {
-        if (Locale.getDefault().getCountry().equals("en")) {
+        if (Locale.getDefault().getCountry().equals("US")) {
             return "Product name: " + getProductName() + ", sold quantity: " + getSoldQuantity() + ", sale date: " + getSaleDate() +
                     ", price of product: " + getPrice() + ", total amount sold: " + getTotalPrice();
         }
