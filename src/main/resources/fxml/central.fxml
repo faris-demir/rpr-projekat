@@ -12,12 +12,12 @@
         <URL value="@/css/central.css" />
     </stylesheets>
    <children>
-      <ImageView fitHeight="755.0" fitWidth="1380.0" layoutX="-1.0" layoutY="32.0" opacity="0.35" pickOnBounds="true">
+      <ImageView fx:id="imgBackground" fitHeight="755.0" fitWidth="1380.0" layoutX="-1.0" layoutY="32.0" opacity="0.35" pickOnBounds="true">
          <image>
             <Image url="@../images/background.jpg" />
          </image>
       </ImageView>
-      <VBox layoutY="38.0" prefHeight="747.0" prefWidth="153.0">
+      <VBox fx:id="boxButtons" layoutY="38.0" prefHeight="747.0" prefWidth="153.0">
          <children>
             <Button fx:id="btnRegister" contentDisplay="TOP" mnemonicParsing="false" onAction="#registerAction" prefHeight="83.0" prefWidth="153.0" text="%btnRegisterProduct" />
             <Button fx:id="btnModify" contentDisplay="TOP" mnemonicParsing="false" onAction="#modifyAction" prefHeight="83.0" prefWidth="159.0" text="%btnModifyProduct" />
@@ -36,12 +36,12 @@
             <TableColumn fx:id="colQuantity" prefWidth="72.0" text="%colQuantity" />
             <TableColumn fx:id="colWeight" prefWidth="68.0" text="%colWeight" />
             <TableColumn fx:id="colUnit" prefWidth="78.5" text="%colUnit" />
-            <TableColumn fx:id="colHeight" prefWidth="152.0" text="%colHeightPackage" />
-            <TableColumn fx:id="colWidth" prefWidth="144.0" text="%colWidthPackage" />
-            <TableColumn fx:id="colSerial" prefWidth="141.0" text="%colSerialNo" />
-            <TableColumn fx:id="colLocation" prefWidth="93.0" text="%colLocationTag" />
-            <TableColumn fx:id="colPurchasePrice" prefWidth="134.0" text="%colPurchasePrice" />
-            <TableColumn fx:id="colSellingPrice" prefWidth="129.5" text="%colSellingPrice" />
+            <TableColumn fx:id="colHeight" prefWidth="140.0" text="%colHeightPackage" />
+            <TableColumn fx:id="colWidth" prefWidth="141.0" text="%colWidthPackage" />
+            <TableColumn fx:id="colSerial" prefWidth="124.0" text="%colSerialNo" />
+            <TableColumn fx:id="colLocation" prefWidth="102.0" text="%colLocationTag" />
+            <TableColumn fx:id="colPurchasePrice" prefWidth="140.0" text="%colPurchasePrice" />
+            <TableColumn fx:id="colSellingPrice" prefWidth="148.5" text="%colSellingPrice" />
         </columns>
       </TableView>
       <TextField fx:id="fldSearch" layoutX="183.0" layoutY="51.0" prefHeight="47.0" prefWidth="696.0" promptText="%textSearch">
