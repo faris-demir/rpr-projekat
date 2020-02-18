@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ba.unsa.etf.rpr.projekat</OriginalElement>
+  <nodes>
+    <node x="0.0" y="2091.0">ba.unsa.etf.rpr.projekat.IllegalSerialNumberException</node>
+    <node x="732.0" y="1453.0">ba.unsa.etf.rpr.projekat.Sector</node>
+    <node x="1299.0" y="1453.0">ba.unsa.etf.rpr.projekat.LoginController</node>
+    <node x="843.0" y="1971.0">ba.unsa.etf.rpr.projekat.LoginControllerTest</node>
+    <node x="1441.0" y="1809.0">ba.unsa.etf.rpr.projekat.SectorTest</node>
+    <node x="1722.0" y="1809.0">ba.unsa.etf.rpr.projekat.ContainerTest</node>
+    <node x="0.0" y="1971.0">ba.unsa.etf.rpr.projekat.ManagerTest</node>
+    <node x="281.0" y="1971.0">ba.unsa.etf.rpr.projekat.ProductTest</node>
+    <node x="841.0" y="950.0">ba.unsa.etf.rpr.projekat.ProductDAO</node>
+    <node x="1280.0" y="1971.0">ba.unsa.etf.rpr.projekat.ExceedingCapacityLimitException</node>
+    <node x="1602.0" y="1971.0">ba.unsa.etf.rpr.projekat.ProductNotSelectedException</node>
+    <node x="415.0" y="0.0">ba.unsa.etf.rpr.projekat.WarehouseModel</node>
+    <node x="0.0" y="1139.0">ba.unsa.etf.rpr.projekat.Order</node>
+    <node x="0.0" y="0.0">ba.unsa.etf.rpr.projekat.CentralController</node>
+    <node x="1171.0" y="950.0">ba.unsa.etf.rpr.projekat.Product</node>
+    <node x="296.0" y="2091.0">ba.unsa.etf.rpr.projekat.OrdersReport</node>
+    <node x="647.0" y="1809.0">ba.unsa.etf.rpr.projekat.SaleTest</node>
+    <node x="1016.0" y="1453.0">ba.unsa.etf.rpr.projekat.Container</node>
+    <node x="0.0" y="1453.0">ba.unsa.etf.rpr.projekat.SellController</node>
+    <node x="928.0" y="1809.0">ba.unsa.etf.rpr.projekat.OrderTest</node>
+    <node x="1800.0" y="1453.0">ba.unsa.etf.rpr.projekat.Manager</node>
+    <node x="1209.0" y="1809.0">ba.unsa.etf.rpr.projekat.ProductDAOTest</node>
+    <node x="412.0" y="1139.0">ba.unsa.etf.rpr.projekat.Sale</node>
+    <node x="289.0" y="1809.0">ba.unsa.etf.rpr.projekat.RegisterControllerTest</node>
+    <node x="611.0" y="1453.0">ba.unsa.etf.rpr.projekat.Unit</node>
+    <node x="1581.0" y="1453.0">ba.unsa.etf.rpr.projekat.WarehouseModelTest</node>
+    <node x="1069.0" y="1971.0">ba.unsa.etf.rpr.projekat.Main</node>
+    <node x="562.0" y="1971.0">ba.unsa.etf.rpr.projekat.TransactionsTest</node>
+    <node x="579.0" y="2091.0">ba.unsa.etf.rpr.projekat.SalesReport</node>
+    <node x="0.0" y="1809.0">ba.unsa.etf.rpr.projekat.RegisterControllerModifyTest</node>
+    <node x="1800.0" y="950.0">ba.unsa.etf.rpr.projekat.CentralControllerTest</node>
+    <node x="881.0" y="0.0">ba.unsa.etf.rpr.projekat.RegisterController</node>
+    <node x="218.5" y="950.0">ba.unsa.etf.rpr.projekat.Transactions</node>
+    <node x="311.0" y="1453.0">ba.unsa.etf.rpr.projekat.OrderController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ba.unsa.etf.rpr.projekat.Sale" target="ba.unsa.etf.rpr.projekat.Transactions">
+      <point x="0.0" y="-134.5" />
+      <point x="604.0" y="1114.0" />
+      <point x="490.75" y="1114.0" />
+      <point x="90.75" y="69.5" />
+    </edge>
+    <edge source="ba.unsa.etf.rpr.projekat.Order" target="ba.unsa.etf.rpr.projekat.Transactions">
+      <point x="0.0" y="-134.5" />
+      <point x="196.0" y="1114.0" />
+      <point x="309.25" y="1114.0" />
+      <point x="-90.75" y="69.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.266173752310536" x="1041.5" y="1072.0" />
+  <SelectedNodes>
+    <node>ba.unsa.etf.rpr.projekat.CentralController</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
